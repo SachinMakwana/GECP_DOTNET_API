@@ -17,4 +17,5 @@ namespace GECP_DOT_NET_API.Models
             public DateTime? UpdatedDate { get; set; }
             public string UpdatedDateInt { get; set; }
     }
+
 }
