@@ -21,19 +21,19 @@ namespace GECP_DOT_NET_API.Controllers
 
         [HttpGet("List")]
 
-        public async Task<ActionResult<ServiceResponse<List<GetFacultyDto>>>> GetAllFaculty()
+        public async Task<ActionResult<ServiceResponse<List<Faculty>>>> GetAllFaculty()
         {
             return Ok(await _faculty.GetAllFaculty());
         }
 
         [HttpPost("Add")]
-        public async Task<ActionResult<ServiceResponse<List<GetFacultyDto>>>> AddFaculty(AddFacultyDto newFaculty)
+        public async Task<ActionResult<ServiceResponse<List<Faculty>>>> AddFaculty(Faculty newFaculty)
         {
             return Ok(await _faculty.AddFaculty(newFaculty));
         }
 
         [HttpPut("Edit")]
-        public async Task<ActionResult<ServiceResponse<List<GetFacultyDto>>>> UpdateFaculty(UpdateFacultyDto updatedFaculty)
+        public async Task<ActionResult<ServiceResponse<List<Faculty>>>> UpdateFaculty(Faculty updatedFaculty)
         {
             var response = await _faculty.UpdateFaculty(updatedFaculty);
             if (response.Data == null)
@@ -43,7 +43,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(response);
         }
         [HttpPut("Delete")]
-        public async Task<ActionResult<ServiceResponse<List<GetFacultyDto>>>> DeleteFaculty(int id)
+        public async Task<ActionResult<ServiceResponse<List<Faculty>>>> DeleteFaculty(int id)
         {
             var response = await _faculty.DeleteFaculty(id);
             if (response.Data == null)

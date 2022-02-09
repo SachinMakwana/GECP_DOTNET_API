@@ -7,9 +7,9 @@ namespace GECP_DOT_NET_API.Repository.FacultyRepository
 {
     public interface IFaculty
     {
-        Task<ServiceResponse<List<GetFacultyDto>>> GetAllFaculty();
-        Task<ServiceResponse<List<GetFacultyDto>>> AddFaculty(AddFacultyDto newFaculty);
-        Task<ServiceResponse<GetFacultyDto>> UpdateFaculty(UpdateFacultyDto updatedFaculty);
-        Task<ServiceResponse<List<GetFacultyDto>>> DeleteFaculty(int id);
+        Task<ServiceResponse<List<Faculty>>> GetAllFaculty();
+        Task<ServiceResponse<List<Faculty>>> AddFaculty(Faculty newFaculty);
+        Task<ServiceResponse<Faculty>> UpdateFaculty(Faculty updatedFaculty);
+        Task<ServiceResponse<List<Faculty>>> DeleteFaculty(int id);
     }
 }

@@ -23,22 +23,22 @@ namespace GECP_DOT_NET_API.Repository.FacultyRepository
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<List<GetFacultyDto>>> AddFaculty(AddFacultyDto newFaculty)
+        public async Task<ServiceResponse<List<Faculty>>> AddFaculty(Faculty newFaculty)
         {
-            var serviceResponse = new ServiceResponse<List<GetFacultyDto>>();
+            var serviceResponse = new ServiceResponse<List<Faculty>>();
             FacultyDetail.Add(_mapper.Map<Faculty>(newFaculty));
-            serviceResponse.Data = FacultyDetail.Select(c => _mapper.Map<GetFacultyDto>(c)).ToList();
+            serviceResponse.Data = FacultyDetail.Select(c => _mapper.Map<Faculty>(c)).ToList();
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<List<GetFacultyDto>>> DeleteFaculty(int id)
+        public async Task<ServiceResponse<List<Faculty>>> DeleteFaculty(int id)
         {
-            var serviceResponse = new ServiceResponse<List<GetFacultyDto>>();
+            var serviceResponse = new ServiceResponse<List<Faculty>>();
             try
             {
                 Faculty faculty = FacultyDetail.First(c => c.Id == id);
                 faculty.IsDeleted = true;
-                serviceResponse.Data = FacultyDetail.Select(c => _mapper.Map<GetFacultyDto>(c)).ToList();
+                serviceResponse.Data = FacultyDetail.Select(c => _mapper.Map<Faculty>(c)).ToList();
             }
             catch (Exception ex)
             {
@@ -48,16 +48,16 @@ namespace GECP_DOT_NET_API.Repository.FacultyRepository
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<List<GetFacultyDto>>> GetAllFaculty()
+        public async Task<ServiceResponse<List<Faculty>>> GetAllFaculty()
         {
-            var serviceResponse = new ServiceResponse<List<GetFacultyDto>>();
-            serviceResponse.Data = FacultyDetail.Select(c => _mapper.Map<GetFacultyDto>(c)).ToList();
+            var serviceResponse = new ServiceResponse<List<Faculty>>();
+            serviceResponse.Data = FacultyDetail.Select(c => _mapper.Map<Faculty>(c)).ToList();
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<GetFacultyDto>> UpdateFaculty(UpdateFacultyDto updatedFaculty)
+        public async Task<ServiceResponse<Faculty>> UpdateFaculty(Faculty updatedFaculty)
         {
-            var serviceResponse = new ServiceResponse<GetFacultyDto>();
+            var serviceResponse = new ServiceResponse<Faculty>();
             try
             {
                 Faculty faculty = FacultyDetail.FirstOrDefault(c => c.Id == updatedFaculty.Id);
@@ -68,7 +68,7 @@ namespace GECP_DOT_NET_API.Repository.FacultyRepository
                 faculty.IsDeleted = updatedFaculty.IsDeleted;
                 faculty.UpdatedDate = updatedFaculty.UpdatedDate;
 
-                serviceResponse.Data = _mapper.Map<GetFacultyDto>(faculty);
+                serviceResponse.Data = _mapper.Map<Faculty>(faculty);
             }
             catch (Exception ex)
             {
