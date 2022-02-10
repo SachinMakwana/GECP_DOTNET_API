@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GECP_DOT_NET_API.Repository.FacultyRepository;
+using GECP_DOT_NET_API.Repository.CollegeRepository;
 
 namespace GECP_DOT_NET_API
 {
@@ -28,6 +29,7 @@ namespace GECP_DOT_NET_API
         {
             services.AddControllers();
             services.AddScoped<IFaculty, FacultyServices>();
+            services.AddScoped<ICollege, Collegdetails>();
             services.AddAutoMapper(typeof(Startup));
         }
 
