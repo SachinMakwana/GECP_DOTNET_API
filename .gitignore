@@ -28,3 +28,6 @@ GECP_DOT_NET_API/bin/Debug/netcoreapp3.1/GECP_DOT_NET_API.runtimeconfig.json
 GECP_DOT_NET_API/obj/project.assets.json
 GECP_DOT_NET_API/obj/project.nuget.cache
 GECP_DOT_NET_API/obj/GECP_DOT_NET_API.csproj.nuget.g.targets
+GECP_DOT_NET_API/.vs/GECP_DOT_NET_API/config/applicationhost.config
+GECP_DOT_NET_API/Database/GECP_ADMINContext.cs
+GECP_DOT_NET_API/Database/GECP_ADMINContext.cs
