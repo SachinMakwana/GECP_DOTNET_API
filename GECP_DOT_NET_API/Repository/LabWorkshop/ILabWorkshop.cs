@@ -8,5 +8,8 @@ namespace GECP_DOT_NET_API.Repository.LabWorkshop
     public interface ILabWorkshop
     {
         Task<ServiceResponse<List<LabWorkshopDetail>>> GetAllLabWorkshop();
+        Task<ServiceResponse<List<LabWorkshopDetail>>> AddLabWorkshop(LabWorkshopDetail labWorkshopDetail);
+        Task<ServiceResponse<List<LabWorkshopDetail>>> EditLabWorkshop(LabWorkshopDetail labWorkshopDetail);
+        Task<ServiceResponse<List<LabWorkshopDetail>>> DeleteLabWorkshop(int id);
     }
 }

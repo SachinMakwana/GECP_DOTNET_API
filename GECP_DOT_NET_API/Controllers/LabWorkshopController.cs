@@ -24,5 +24,34 @@ namespace GECP_DOT_NET_API.Controllers
         {
             return Ok(await _labworkshop.GetAllLabWorkshop());
         }
+
+        [HttpPost("Add")]
+        public async Task<ActionResult<ServiceResponse<List<LabWorkshopDetail>>>> AddLabWorkshop(LabWorkshopDetail labWorkshopDetail)
+        {
+            return Ok(await _labworkshop.AddLabWorkshop(labWorkshopDetail));
+        }
+
+        [HttpPut("Edit")]
+        public async Task<ActionResult<ServiceResponse<List<LabWorkshopDetail>>>> EditLabWorkshop(LabWorkshopDetail labWorkshopDetail)
+        {
+            var response = await _labworkshop.EditLabWorkshop(labWorkshopDetail);
+            if (response.Data == null)
+            {
+                return NotFound(response);
+            }
+            return Ok(response);
+        }
+
+        [HttpPut("Delete")]
+        public async Task<ActionResult<ServiceResponse<LabWorkshopDetail>>> DeleteLabWorkshop(int id)
+        {
+            var response = await _labworkshop.DeleteLabWorkshop(id);
+            if (response.Data == null)
+            {
+                return NotFound(response);
+    }
+            return Ok(response);
+}
+
     }
 }

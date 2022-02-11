@@ -12,11 +12,6 @@ namespace GECP_DOT_NET_API.Repository.LabWorkshop
     {
         GECP_ADMINContext _adminContext;
 
-        private static List<LabWorkshopDetail> LabWorkshopDetail = new List<LabWorkshopDetail>
-        {
-            new LabWorkshopDetail(),
-            new LabWorkshopDetail{ Id= 4, Name = "Ojas" }
-        };
 
         private readonly IMapper _mapper;
 
@@ -61,5 +56,54 @@ namespace GECP_DOT_NET_API.Repository.LabWorkshop
             }
         }
 
+        public async Task<ServiceResponse<List<LabWorkshopDetail>>> EditLabWorkshop(LabWorkshopDetail labWorkshopDetail)
+        {
+            ServiceResponse<List<LabWorkshopDetail>> serviceResponse = new ServiceResponse<List<LabWorkshopDetail>>();
+            try
+            {
+                using (_adminContext = new GECP_ADMINContext()) 
+                {
+                    LabWorkshopDetail labworkshop = _adminContext.LabWorkshopDetails.FirstOrDefault(c => c.Id == labWorkshopDetail.Id);
+
+                    labworkshop.Name = labWorkshopDetail.Name;
+                    labworkshop.DeptId = labWorkshopDetail.DeptId;
+                    labworkshop.Description = labWorkshopDetail.Description;
+                    labworkshop.Image = labWorkshopDetail.Image;
+                    labworkshop.IsDeleted = labWorkshopDetail.IsDeleted;
+                    labworkshop.UpdatedDate = labWorkshopDetail.UpdatedDate;
+
+                    serviceResponse.Data = _mapper.Map<LabWorkshopDetail>(labworkshop);
+                    return serviceResponse;
+                }
+            }
+
+            catch (Exception ex)
+            {
+                serviceResponse.Success = false;
+                serviceResponse.Message = ex.Message;
+                return serviceResponse;
+            }
+        }
+
+        public Task<ServiceResponse<List<LabWorkshopDetail>>> DeleteLabWorkshop(int id)
+        {
+            ServiceResponse<List<LabWorkshopDetail>> serviceResponse = new ServiceResponse<List<LabWorkshopDetail>>();
+            try
+            {
+                using (_adminContext = new GECP_ADMINContext())
+                {
+                    LabWorkshopDetail labWorkshop = _adminContext.LabWorkshopDetails.First(c => c.Id == id);
+                    labWorkshop.IsDeleted = true;
+                    serviceResponse.Data = _adminContext.LabWorkshopDetails.Select(c => _mapper.Map<LabWorkshopDetail>(c)).ToList();
+                    return serviceResponse;
+                }
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Success = false;
+                serviceResponse.Message = ex.Message;
+                return serviceResponse;
+            }
+        }
     }
 }
