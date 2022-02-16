@@ -5,22 +5,41 @@ using AutoMapper;
 using System;
 using GECP_DOT_NET_API.Dtos.Faculty;
 using GECP_DOT_NET_API.Models;
-
+using GECP_DOT_NET_API.Database;
 
 namespace GECP_DOT_NET_API.Repository.FacultyRepository
 {
     public class FacultyServices : IFaculty
     {
-        private static List<Faculty> FacultyDetail = new List<Faculty>
-        {
-            new Faculty(),
-            new Faculty{ Id= 4, Name = "Ojas" }
-        };
+        GECP_ADMINContext _adminContext;
+        //private static List<Faculty> FacultyDetail = new List<Faculty>
+        //{
+          //  new Faculty(),
+          //  new Faculty{ Id= 4, Name = "Ojas" }
+        //};
 
         private readonly IMapper _mapper;
         public FacultyServices(IMapper mapper)
         {
             _mapper = mapper;
+        }
+
+        
+
+        public async Task<ServiceResponse<List<Faculty>>> GetAllFaculty()
+        {
+            ServiceResponse<List<Faculty>> serviceResponse = new ServiceResponse<List<Faculty>>();
+            try
+            {
+                //using (_adminContext = new GECP_ADMINContext())
+                //{
+                    serviceResponse.Data = _adminContext.FacultyDetails.Select(c => _mapper.Map<Faculty>(c)).ToList();
+                    return serviceResponse;
+                //};
+            }catch(Exception ex)
+            {
+                return serviceResponse;
+            }
         }
 
         public async Task<ServiceResponse<List<Faculty>>> AddFaculty(Faculty newFaculty)
@@ -47,14 +66,6 @@ namespace GECP_DOT_NET_API.Repository.FacultyRepository
             }
             return serviceResponse;
         }
-
-        public async Task<ServiceResponse<List<Faculty>>> GetAllFaculty()
-        {
-            var serviceResponse = new ServiceResponse<List<Faculty>>();
-            serviceResponse.Data = FacultyDetail.Select(c => _mapper.Map<Faculty>(c)).ToList();
-            return serviceResponse;
-        }
-
         public async Task<ServiceResponse<Faculty>> UpdateFaculty(Faculty updatedFaculty)
         {
             var serviceResponse = new ServiceResponse<Faculty>();

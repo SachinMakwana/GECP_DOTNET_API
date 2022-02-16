@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace GECP_DOT_NET_API.Database
 {
-    public partial class LabWorkshopDetail
+    public class LabWorkshopDetail
     {
         public int Id { get; set; }
         public int DeptId { get; set; }
