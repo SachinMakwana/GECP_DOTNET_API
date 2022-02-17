@@ -45,7 +45,7 @@ namespace GECP_DOT_NET_API.Repository.LabWorkshop
             {
                 using (_adminContext = new GECP_ADMINContext())
                 {
-                    LabWorkshopDetail.Add(_mapper.Map<LabWorkshopDetail>(labWorkshop));
+                    _adminContext.Add(_mapper.Map<LabWorkshopDetail>(labWorkshop));
                     serviceResponse.Data = _adminContext.LabWorkshopDetails.Select(c => _mapper.Map<LabWorkshopDetail>(c)).ToList();
                     return serviceResponse;
                 };
@@ -72,7 +72,7 @@ namespace GECP_DOT_NET_API.Repository.LabWorkshop
                     labworkshop.IsDeleted = labWorkshopDetail.IsDeleted;
                     labworkshop.UpdatedDate = labWorkshopDetail.UpdatedDate;
 
-                    serviceResponse.Data = _mapper.Map<LabWorkshopDetail>(labworkshop);
+                    //serviceResponse.Data = _mapper.Map<LabWorkshopDetail>(labworkshop);
                     return serviceResponse;
                 }
             }
@@ -95,14 +95,14 @@ namespace GECP_DOT_NET_API.Repository.LabWorkshop
                     LabWorkshopDetail labWorkshop = _adminContext.LabWorkshopDetails.First(c => c.Id == id);
                     labWorkshop.IsDeleted = true;
                     serviceResponse.Data = _adminContext.LabWorkshopDetails.Select(c => _mapper.Map<LabWorkshopDetail>(c)).ToList();
-                    return serviceResponse;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
                 serviceResponse.Success = false;
                 serviceResponse.Message = ex.Message;
-                return serviceResponse;
+                return null;
             }
         }
     }

@@ -49,9 +49,9 @@ namespace GECP_DOT_NET_API.Controllers
             if (response.Data == null)
             {
                 return NotFound(response);
-    }
+            }
             return Ok(response);
-}
+        }
 
     }
 }

@@ -31,11 +31,11 @@ namespace GECP_DOT_NET_API.Repository.FacultyRepository
             ServiceResponse<List<Faculty>> serviceResponse = new ServiceResponse<List<Faculty>>();
             try
             {
-                //using (_adminContext = new GECP_ADMINContext())
-                //{
+                using (_adminContext = new GECP_ADMINContext())
+                {
                     serviceResponse.Data = _adminContext.FacultyDetails.Select(c => _mapper.Map<Faculty>(c)).ToList();
                     return serviceResponse;
-                //};
+                };
             }catch(Exception ex)
             {
                 return serviceResponse;
@@ -44,10 +44,20 @@ namespace GECP_DOT_NET_API.Repository.FacultyRepository
 
         public async Task<ServiceResponse<List<Faculty>>> AddFaculty(Faculty newFaculty)
         {
-            var serviceResponse = new ServiceResponse<List<Faculty>>();
-            FacultyDetail.Add(_mapper.Map<Faculty>(newFaculty));
-            serviceResponse.Data = FacultyDetail.Select(c => _mapper.Map<Faculty>(c)).ToList();
-            return serviceResponse;
+            ServiceResponse<List<Faculty>> serviceResponse = new ServiceResponse<List<Faculty>>();
+            try
+            {
+                using (_adminContext = new GECP_ADMINContext())
+                {
+                    _adminContext.Add(_mapper.Map<Faculty>(newFaculty));
+                    serviceResponse.Data = _adminContext.FacultyDetails.Select(c => _mapper.Map<Faculty>(c)).ToList();
+                    return serviceResponse;
+                };
+            }
+            catch (Exception ex)
+            {
+                return serviceResponse;
+            }
         }
 
         public async Task<ServiceResponse<List<Faculty>>> DeleteFaculty(int id)
@@ -55,9 +65,12 @@ namespace GECP_DOT_NET_API.Repository.FacultyRepository
             var serviceResponse = new ServiceResponse<List<Faculty>>();
             try
             {
-                Faculty faculty = FacultyDetail.First(c => c.Id == id);
-                faculty.IsDeleted = true;
-                serviceResponse.Data = FacultyDetail.Select(c => _mapper.Map<Faculty>(c)).ToList();
+                using (_adminContext = new GECP_ADMINContext())
+                {
+                    //Faculty faculty = FacultyDetail.First(c => c.Id == id);
+                    //faculty.IsDeleted = true;
+                    serviceResponse.Data = _adminContext.FacultyDetails.Select(c => _mapper.Map<Faculty>(c)).ToList();
+                }
             }
             catch (Exception ex)
             {
@@ -71,15 +84,15 @@ namespace GECP_DOT_NET_API.Repository.FacultyRepository
             var serviceResponse = new ServiceResponse<Faculty>();
             try
             {
-                Faculty faculty = FacultyDetail.FirstOrDefault(c => c.Id == updatedFaculty.Id);
+                //Faculty faculty = FacultyDetail.FirstOrDefault(c => c.Id == updatedFaculty.Id);
 
-                faculty.Name = updatedFaculty.Name;
-                faculty.DeptId = updatedFaculty.DeptId;
-                faculty.DesignationId = updatedFaculty.DesignationId;
-                faculty.IsDeleted = updatedFaculty.IsDeleted;
-                faculty.UpdatedDate = updatedFaculty.UpdatedDate;
+                //faculty.Name = updatedFaculty.Name;
+                //faculty.DeptId = updatedFaculty.DeptId;
+                //faculty.DesignationId = updatedFaculty.DesignationId;
+                //faculty.IsDeleted = updatedFaculty.IsDeleted;
+                //faculty.UpdatedDate = updatedFaculty.UpdatedDate;
 
-                serviceResponse.Data = _mapper.Map<Faculty>(faculty);
+                //serviceResponse.Data = _mapper.Map<Faculty>(faculty);
             }
             catch (Exception ex)
             {
