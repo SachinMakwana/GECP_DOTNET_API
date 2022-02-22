@@ -22,21 +22,21 @@ namespace GECP_DOT_NET_API.Controllers
 
         [HttpGet("List")]
 
-        public async Task<ActionResult<ServiceResponse<List<FacultyDetail>>>> GetAllFaculty()
+        public ActionResult<ServiceResponse<List<FacultyDetail>>> GetAllFaculty()
         {
-            return Ok(await _faculty.GetAllFaculty());
+            return Ok( _faculty.GetAllFaculty());
         }
 
         [HttpPost("Add")]
-        public async Task<ActionResult<ServiceResponse<List<FacultyDetail>>>> AddFaculty(FacultyDetail newFaculty)
+        public  ActionResult<ServiceResponse<List<FacultyDetail>>> AddFaculty(FacultyDetail newFaculty)
         {
-            return Ok(await _faculty.AddFaculty(newFaculty));
+            return Ok( _faculty.AddFaculty(newFaculty));
         }
 
         [HttpPut("Edit")]
-        public async Task<ActionResult<ServiceResponse<List<FacultyDetail>>>> UpdateFaculty(FacultyDetail updatedFaculty)
+        public ActionResult<ServiceResponse<List<FacultyDetail>>> UpdateFaculty(FacultyDetail updatedFaculty)
         {
-            var response = await _faculty.UpdateFaculty(updatedFaculty);
+            var response =  _faculty.UpdateFaculty(updatedFaculty);
             if (response.Data == null)
             {
                 return NotFound(response);
@@ -44,9 +44,9 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(response);
         }
         [HttpPut("Delete")]
-        public async Task<ActionResult<ServiceResponse<List<FacultyDetail>>>> DeleteFaculty(int id)
+        public ActionResult<ServiceResponse<List<FacultyDetail>>> DeleteFaculty(int id)
         {
-            var response = await _faculty.DeleteFaculty(id);
+            var response =  _faculty.DeleteFaculty(id);
             if (response.Data == null)
             {
                 return NotFound(response);

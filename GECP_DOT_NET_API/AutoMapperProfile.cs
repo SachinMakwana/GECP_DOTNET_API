@@ -8,8 +8,8 @@ namespace GECP_DOT_NET_API
     {
         public AutoMapperProfile()
         {
-            CreateMap<Faculty, GetFacultyDto>();
-            CreateMap<AddFacultyDto, Faculty>();
+            CreateMap<FacultyDetailVM, GetFacultyDto>();
+            CreateMap<AddFacultyDto, FacultyDetailVM>();
         }
     }
 }

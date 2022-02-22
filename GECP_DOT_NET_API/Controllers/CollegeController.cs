@@ -28,7 +28,7 @@ namespace GECP_DOT_NET_API.Controllers
         }
 
         [HttpPut("Edit")]
-        public async Task<ActionResult<ServiceResponse<List<Faculty>>>> UpdateCollege(CollegeVM updatedCollegeVM)
+        public async Task<ActionResult<ServiceResponse<List<CollegeVM>>>> UpdateCollege(CollegeVM updatedCollegeVM)
         {
             var response = await _college.UpdateCollege(updatedCollegeVM);
             if (response.Data == null)
