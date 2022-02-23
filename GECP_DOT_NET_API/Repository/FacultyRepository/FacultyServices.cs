@@ -23,34 +23,33 @@ namespace GECP_DOT_NET_API.Repository.FacultyRepository
             _mapper = mapper;
         }
 
-
-
-        public ServiceResponse<List<FacultyDetail>> GetAllFaculty()
+        public ServiceResponse<List<FacultyDetailVM>> GetAllFaculty()
         {
-            ServiceResponse<List<FacultyDetail>> serviceResponse = new ServiceResponse<List<FacultyDetail>>();
+            ServiceResponse<List<FacultyDetailVM>> serviceResponse = new ServiceResponse<List<FacultyDetailVM>>();
             try
             {
                 using (_adminContext = new GECP_ADMINContext())
                 {
-                    serviceResponse.Data = _adminContext.FacultyDetails.Select(c => _mapper.Map<FacultyDetail>(c)).ToList();
+                    serviceResponse.Data = _adminContext.FacultyDetails.Select(c => _mapper.Map<FacultyDetailVM>(c)).ToList();
                     return serviceResponse;
                 };
             }
             catch (Exception ex)
             {
-                return serviceResponse;
-            }
+                 return serviceResponse;
+            } 
         }
 
-        public ServiceResponse<List<FacultyDetail>> AddFaculty(FacultyDetail newFaculty)
+        public ServiceResponse<List<FacultyDetailVM>> AddFaculty(FacultyDetailVM newFaculty)
         {
-            ServiceResponse<List<FacultyDetail>> serviceResponse = new ServiceResponse<List<FacultyDetail>>();
+            ServiceResponse<List<FacultyDetailVM>> serviceResponse = new ServiceResponse<List<FacultyDetailVM>>();
             try
             {
                 using (_adminContext = new GECP_ADMINContext())
                 {
+
                     _adminContext.Add(_mapper.Map<FacultyDetail>(newFaculty));
-                    serviceResponse.Data = _adminContext.FacultyDetails.Select(c => _mapper.Map<FacultyDetail>(c)).ToList();
+                    serviceResponse.Data = _adminContext.FacultyDetails.Select(c => _mapper.Map<FacultyDetailVM>(c)).ToList();
                     return serviceResponse;
                 };
             }
@@ -60,16 +59,16 @@ namespace GECP_DOT_NET_API.Repository.FacultyRepository
             }
         }
 
-        public ServiceResponse<List<FacultyDetail>> DeleteFaculty(int id)
+        public ServiceResponse<List<FacultyDetailVM>> DeleteFaculty(int id)
         {
-            var serviceResponse = new ServiceResponse<List<FacultyDetail>>();
+            var serviceResponse = new ServiceResponse<List<FacultyDetailVM>>();
             try
             {
                 using (_adminContext = new GECP_ADMINContext())
                 {
                     //Faculty faculty = FacultyDetail.First(c => c.Id == id);
                     //faculty.IsDeleted = true;
-                    serviceResponse.Data = _adminContext.FacultyDetails.Select(c => _mapper.Map<FacultyDetail>(c)).ToList();
+                    serviceResponse.Data = _adminContext.FacultyDetails.Select(c => _mapper.Map<FacultyDetailVM>(c)).ToList();
                 }
             }
             catch (Exception ex)
@@ -79,9 +78,9 @@ namespace GECP_DOT_NET_API.Repository.FacultyRepository
             }
             return serviceResponse;
         }
-        public ServiceResponse<FacultyDetail> UpdateFaculty(FacultyDetail updatedFaculty)
+        public ServiceResponse<FacultyDetailVM> UpdateFaculty(FacultyDetailVM updatedFaculty)
         {
-            var serviceResponse = new ServiceResponse<FacultyDetail>();
+            var serviceResponse = new ServiceResponse<FacultyDetailVM>();
             try
             {
                 using (_adminContext = new GECP_ADMINContext())
@@ -94,7 +93,7 @@ namespace GECP_DOT_NET_API.Repository.FacultyRepository
                     faculty.IsDeleted = updatedFaculty.IsDeleted;
                     faculty.UpdatedDate = updatedFaculty.UpdatedDate;
 
-                    serviceResponse.Data = _mapper.Map<FacultyDetail>(faculty);
+                    serviceResponse.Data = _mapper.Map<FacultyDetailVM>(faculty);
                 }
             }
             catch (Exception ex)

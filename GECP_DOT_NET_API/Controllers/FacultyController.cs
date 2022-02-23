@@ -22,19 +22,19 @@ namespace GECP_DOT_NET_API.Controllers
 
         [HttpGet("List")]
 
-        public ActionResult<ServiceResponse<List<FacultyDetail>>> GetAllFaculty()
+        public ActionResult<ServiceResponse<List<FacultyDetailVM>>> GetAllFaculty()
         {
             return Ok( _faculty.GetAllFaculty());
         }
 
         [HttpPost("Add")]
-        public  ActionResult<ServiceResponse<List<FacultyDetail>>> AddFaculty(FacultyDetail newFaculty)
+        public  ActionResult<ServiceResponse<List<FacultyDetailVM>>> AddFaculty(FacultyDetailVM newFaculty)
         {
             return Ok( _faculty.AddFaculty(newFaculty));
         }
 
         [HttpPut("Edit")]
-        public ActionResult<ServiceResponse<List<FacultyDetail>>> UpdateFaculty(FacultyDetail updatedFaculty)
+        public ActionResult<ServiceResponse<List<FacultyDetailVM>>> UpdateFaculty(FacultyDetailVM updatedFaculty)
         {
             var response =  _faculty.UpdateFaculty(updatedFaculty);
             if (response.Data == null)
@@ -44,7 +44,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(response);
         }
         [HttpPut("Delete")]
-        public ActionResult<ServiceResponse<List<FacultyDetail>>> DeleteFaculty(int id)
+        public ActionResult<ServiceResponse<List<FacultyDetailVM>>> DeleteFaculty(int id)
         {
             var response =  _faculty.DeleteFaculty(id);
             if (response.Data == null)
