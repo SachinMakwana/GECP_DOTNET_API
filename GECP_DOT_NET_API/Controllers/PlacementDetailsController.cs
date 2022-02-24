@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -36,11 +37,13 @@ namespace GECP_DOT_NET_API.Controllers
         [HttpPost, Route("api/AddPlacementDetail")]
         public IActionResult AddPlacementDetail(PlacementVM placementVM, IFormFile file)
         {
-            var fileUploadTask = FileUpload.SaveFile(file, _hostingEnvironment.WebRootPath);
+            string filepath =  Path.Combine(_hostingEnvironment.WebRootPath, "uploads/placements/students/"+new Guid().ToString());
+            var fileUploadTask = FileUpload.SaveFile(file, filepath);
             fileUploadTask.Wait();
             bool status = fileUploadTask.Result;
             if (status)
             {
+                placementVM.StudentPic = filepath;
                 return Ok(iplacementRepo.AddPlacementDetail(placementVM));
             }
             return Ok();
