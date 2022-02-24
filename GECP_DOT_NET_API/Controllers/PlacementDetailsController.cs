@@ -15,15 +15,12 @@ namespace GECP_DOT_NET_API.Controllers
     [ApiController]
     public class PlacementDetailsController : ControllerBase
     {
-        IPlacementRepo iplacementRepo;
+        private IPlacementRepo iplacementRepo;
         private IWebHostEnvironment _hostingEnvironment;
-        private PlacementDetailsController()
-        {
-            iplacementRepo = new PlacementRepo();
-        }
-
+       
         public PlacementDetailsController(IWebHostEnvironment environment)
         {
+            iplacementRepo = new PlacementRepo();
             _hostingEnvironment = environment;
         } 
 
@@ -31,13 +28,14 @@ namespace GECP_DOT_NET_API.Controllers
         [HttpGet,Route("api/GetAllPlacementDetails")]
         public IActionResult GetPlacementDetails()
         {
-            return Ok(iplacementRepo.GetAllPlacementDetails());
+            var response = iplacementRepo.GetAllPlacementDetails();
+            return Ok(response);
         }
 
         [HttpPost, Route("api/AddPlacementDetail")]
         public IActionResult AddPlacementDetail(PlacementVM placementVM, IFormFile file)
         {
-            string filepath =  Path.Combine(_hostingEnvironment.WebRootPath, "uploads/placements/students/"+new Guid().ToString());
+            string filepath =  Path.Combine(_hostingEnvironment.WebRootPath, "uploads/placements/students/"+new Guid().ToString()+"."+file.);
             var fileUploadTask = FileUpload.SaveFile(file, filepath);
             fileUploadTask.Wait();
             bool status = fileUploadTask.Result;

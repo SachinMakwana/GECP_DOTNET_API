@@ -14,16 +14,16 @@ namespace GECP_DOT_NET_API.Helper
             return true;
         }
 
+        
         public static async Task<bool> SaveFile(IFormFile file, string webRootPath)
         {
             try
             {
-                string uploads = Path.Combine(webRootPath, "uploads");
 
                 if (file.Length > 0)
                 {
-                    string filePath = Path.Combine(uploads, file.FileName);
-                    using (Stream fileStream = new FileStream(filePath, FileMode.Create))
+                    
+                    using (Stream fileStream = new FileStream(webRootPath, FileMode.Create))
                     {
                         await file.CopyToAsync(fileStream);
                     }

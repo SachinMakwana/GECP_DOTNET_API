@@ -18,7 +18,8 @@ namespace GECP_DOT_NET_API.Repository
             {
                 using (DBEntities = new GECP_ADMINContext())
                 {
-                    serviceReponse.data = DBEntities.Placements.Where(m=>m.IsDeleted!=true).Select(m => m.ToModel()).ToList();
+                    var placementList = DBEntities.Placements.Where(m => m.IsDeleted != true).Select(m => m.ToModel()).ToList();
+                    serviceReponse.data = placementList;
                     serviceReponse.status_code = "200";
                     serviceReponse.message = "Data fetched successfully";
                 }
@@ -92,7 +93,7 @@ namespace GECP_DOT_NET_API.Repository
                     serviceReponse.message = "Data added successfully";
 
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -109,7 +110,7 @@ namespace GECP_DOT_NET_API.Repository
             ServiceResponse<bool> serviceReponse = new ServiceResponse<bool>();
             try
             {
-                Placement dbObject = DBEntities.Placements.Where(m => m.Id == placementVM.Id && m.IsDeleted!=true).FirstOrDefault();
+                Placement dbObject = DBEntities.Placements.Where(m => m.Id == placementVM.Id && m.IsDeleted != true).FirstOrDefault();
                 if (dbObject == null)
                 {
                     serviceReponse.data = false;
@@ -119,7 +120,7 @@ namespace GECP_DOT_NET_API.Repository
                 else
                 {
 
-                    
+
                     dbObject.IsDeleted = true;
 
                     DBEntities.SaveChanges();
