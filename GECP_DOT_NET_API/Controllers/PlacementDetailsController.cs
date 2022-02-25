@@ -17,15 +17,15 @@ namespace GECP_DOT_NET_API.Controllers
     {
         private IPlacementRepo iplacementRepo;
         private IWebHostEnvironment _hostingEnvironment;
-       
+
         public PlacementDetailsController(IWebHostEnvironment environment)
         {
             iplacementRepo = new PlacementRepo();
             _hostingEnvironment = environment;
-        } 
+        }
 
 
-        [HttpGet,Route("api/GetAllPlacementDetails")]
+        [HttpGet, Route("api/GetAllPlacementDetails")]
         public IActionResult GetPlacementDetails()
         {
             var response = iplacementRepo.GetAllPlacementDetails();
@@ -33,9 +33,19 @@ namespace GECP_DOT_NET_API.Controllers
         }
 
         [HttpPost, Route("api/AddPlacementDetail")]
-        public IActionResult AddPlacementDetail(PlacementVM placementVM, IFormFile file)
+        public IActionResult AddPlacementDetail(IFormFile file, PlacementVM placementVM)
         {
-            string filepath =  Path.Combine(_hostingEnvironment.WebRootPath, "uploads/placements/students/"+new Guid().ToString()+"."+file.);
+            //PlacementVM placementVM = new PlacementVM();
+            string filepath = string.Empty;
+            if (_hostingEnvironment.WebRootPath != null)
+            {
+                filepath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads/placements/students/" + Guid.NewGuid().ToString() + "." + file.FileName.Split('.')[1]);
+            }
+            else
+            {
+                filepath = Path.Combine("uploads/placements/students/", Guid.NewGuid().ToString() + "." + file.FileName.Split('.')[1]);
+
+            }
             var fileUploadTask = FileUpload.SaveFile(file, filepath);
             fileUploadTask.Wait();
             bool status = fileUploadTask.Result;

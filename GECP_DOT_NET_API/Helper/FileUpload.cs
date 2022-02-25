@@ -22,7 +22,10 @@ namespace GECP_DOT_NET_API.Helper
 
                 if (file.Length > 0)
                 {
-                    
+                    if (!Directory.Exists(webRootPath))
+                    {
+                        Directory.CreateDirectory(webRootPath);
+                    }
                     using (Stream fileStream = new FileStream(webRootPath, FileMode.Create))
                     {
                         await file.CopyToAsync(fileStream);
