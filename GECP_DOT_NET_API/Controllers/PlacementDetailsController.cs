@@ -33,20 +33,29 @@ namespace GECP_DOT_NET_API.Controllers
         }
 
         [HttpPost, Route("api/AddPlacementDetail")]
-        public IActionResult AddPlacementDetail(IFormFile file, PlacementVM placementVM)
+
+        //need to try with HTTPRequest or IFormCollection
+        //public IActionResult AddPlacementDetail(IFormFile file, PlacementVM placementVM)
+        public IActionResult AddPlacementDetail(IFormCollection collection)
         {
+            var file = collection.Files.FirstOrDefault();
+            var placementVM = new PlacementVM();
+            TryUpdateModelAsync<PlacementVM>(placementVM);
             //PlacementVM placementVM = new PlacementVM();
             string filepath = string.Empty;
+            string fileName = Guid.NewGuid().ToString() + "." + file.FileName.Split('.')[1];
+            string dir;
             if (_hostingEnvironment.WebRootPath != null)
             {
-                filepath = Path.Combine(_hostingEnvironment.WebRootPath, "uploads/placements/students/" + Guid.NewGuid().ToString() + "." + file.FileName.Split('.')[1]);
+                dir = Path.Combine(_hostingEnvironment.WebRootPath, "uploads/placements/students");
             }
             else
             {
-                filepath = Path.Combine("uploads/placements/students/", Guid.NewGuid().ToString() + "." + file.FileName.Split('.')[1]);
+                dir = "uploads/placements/students";
 
             }
-            var fileUploadTask = FileUpload.SaveFile(file, filepath);
+            filepath = dir+"/" + fileName;
+            var fileUploadTask = FileUpload.SaveFile(file, filepath,dir);
             fileUploadTask.Wait();
             bool status = fileUploadTask.Result;
             if (status)
