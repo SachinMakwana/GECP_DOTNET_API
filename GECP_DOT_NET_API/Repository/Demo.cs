@@ -22,7 +22,7 @@ namespace GECP_DOT_NET_API.Repository
                     var obj = dbEntities.FacultyDetails.Where(m => m.Id == id).FirstOrDefault();
                     if(obj != null)
                     {
-                        return obj.Copy();
+                        return obj.ToModel();
                     }
 
                     return null;
@@ -42,7 +42,7 @@ namespace GECP_DOT_NET_API.Repository
             {
                 using (dbEntities = new GECP_ADMINContext())
                 {
-                    FacultyDetail dbObj = facultyDetailsVM.Copy();
+                    FacultyDetail dbObj = facultyDetailsVM.ToContext();
                     dbEntities.FacultyDetails.Add(dbObj);
                     dbEntities.SaveChanges();
                 }
@@ -113,7 +113,7 @@ namespace GECP_DOT_NET_API.Repository
             {
 
                 FacultyDetail obj = new FacultyDetail();
-                facultyDetailsVM = obj.Copy();
+                facultyDetailsVM = obj.ToModel();
                 obj = dbEntities.FacultyDetails.Where(model => model.Id == facultyDetailsVM.Id).FirstOrDefault();
                 obj.IsDeleted = true;
                 obj.Id = facultyDetailsVM.Id;

@@ -9,7 +9,8 @@ namespace GECP_DOT_NET_API.Helper
 {
     public static class ExtensionMethods
     {
-        public static FacultyDetailsVM Copy(this FacultyDetail obj)
+        #region --> FacultyDetailsVM
+        public static FacultyDetailsVM ToModel(this FacultyDetail obj)
         {
             return new FacultyDetailsVM()
             {
@@ -25,7 +26,7 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
 
-        public static FacultyDetail Copy(this FacultyDetailsVM obj)
+        public static FacultyDetail ToContext(this FacultyDetailsVM obj)
         {
             return new FacultyDetail()
             {
@@ -40,5 +41,48 @@ namespace GECP_DOT_NET_API.Helper
                 UpdatedDateInt = obj.UpdatedDateInt
             };
         }
+        #endregion
+
+        #region --> PlacementVM
+        public static PlacementVM ToModel(this Placement obj)
+        {
+            return new PlacementVM()
+            {
+                Id = obj.Id,
+                StudentName = obj.StudentName,
+                StudentPic = obj.StudentPic,
+                DeptId = obj.DeptId,
+                AnnualPackage = obj.AnnualPackage,
+                MonthlyPackage = obj.MonthlyPackage,
+                CompanyId = obj.CompanyId,
+                PlacementDate = obj.PlacementDate,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+
+        public static Placement ToContext(this PlacementVM obj)
+        {
+            return new Placement()
+            {
+                Id = obj.Id,
+                StudentName = obj.StudentName,
+                StudentPic = obj.StudentPic,
+                DeptId = obj.DeptId,
+                AnnualPackage = obj.AnnualPackage,
+                MonthlyPackage = obj.MonthlyPackage,
+                CompanyId = obj.CompanyId,
+                PlacementDate = obj.PlacementDate,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
     }
 }
