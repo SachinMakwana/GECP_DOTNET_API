@@ -33,15 +33,11 @@ namespace GECP_DOT_NET_API.Controllers
         }
 
         [HttpPost, Route("api/AddPlacementDetail")]
-
-        //need to try with HTTPRequest or IFormCollection
-        //public IActionResult AddPlacementDetail(IFormFile file, PlacementVM placementVM)
         public IActionResult AddPlacementDetail(IFormCollection collection)
         {
             var file = collection.Files.FirstOrDefault();
             var placementVM = new PlacementVM();
             TryUpdateModelAsync<PlacementVM>(placementVM);
-            //PlacementVM placementVM = new PlacementVM();
             string filepath = string.Empty;
             string fileName = Guid.NewGuid().ToString() + "." + file.FileName.Split('.')[1];
             string dir;
@@ -67,9 +63,41 @@ namespace GECP_DOT_NET_API.Controllers
         }
 
         [HttpPut, Route("api/UpdatePlacementDetail")]
-        public IActionResult UpdatePlacementDetail(PlacementVM placementVM)
+        public IActionResult UpdatePlacementDetail(IFormCollection collection)
         {
-            return Ok(iplacementRepo.UpdatePlacementDetail(placementVM));
+            var file = collection.Files.FirstOrDefault();
+            var placementVM = new PlacementVM();
+            TryUpdateModelAsync<PlacementVM>(placementVM);
+            string filepath = string.Empty;
+            string dir;
+            if (_hostingEnvironment.WebRootPath != null)
+            {
+                dir = Path.Combine(_hostingEnvironment.WebRootPath, "uploads/placements/students");
+            }
+            else
+            {
+                dir = "uploads/placements/students";
+
+            }
+            if (file !=null && file.Length > 0)
+            {
+                string fileName = Guid.NewGuid().ToString() + "." + file.FileName.Split('.')[1];
+                filepath = dir + "/" + fileName;
+                var fileUploadTask = FileUpload.SaveFile(file, filepath, dir);
+                fileUploadTask.Wait();
+                bool status = fileUploadTask.Result;
+                if (status)
+                {
+                    placementVM.StudentPic = filepath;
+                    return Ok(iplacementRepo.UpdatePlacementDetail(placementVM));
+                }
+            }
+            else
+            {
+                placementVM.StudentPic = string.Empty;
+                return Ok(iplacementRepo.UpdatePlacementDetail(placementVM));
+            }
+            return Ok();
         }
 
         [HttpPut, Route("api/DeletePlacementDetail")]
