@@ -37,6 +37,8 @@ namespace GECP_DOT_NET_API.Database
         public virtual DbSet<Gallery> Galleries { get; set; }
         public virtual DbSet<GalleryTag> GalleryTags { get; set; }
         public virtual DbSet<GeneralLog> GeneralLogs { get; set; }
+        public virtual DbSet<Grievance> Grievances { get; set; }
+        public virtual DbSet<GrievanceStatus> GrievanceStatuses { get; set; }
         public virtual DbSet<LabWorkshopDetail> LabWorkshopDetails { get; set; }
         public virtual DbSet<MediaLink> MediaLinks { get; set; }
         public virtual DbSet<MenuItem> MenuItems { get; set; }
@@ -660,6 +662,61 @@ namespace GECP_DOT_NET_API.Database
                 entity.Property(e => e.UpdatedDateInt)
                     .HasMaxLength(4000)
                     .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
+            });
+
+            modelBuilder.Entity<Grievance>(entity =>
+            {
+                entity.ToTable("Grievance");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedDateInt)
+                    .HasMaxLength(4000)
+                    .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
+
+                entity.Property(e => e.Description).IsRequired();
+
+                entity.Property(e => e.EmailId)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("EmailID");
+
+                entity.Property(e => e.Mobile)
+                    .IsRequired()
+                    .HasMaxLength(20);
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Subject)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.UpdatedDateInt)
+                    .HasMaxLength(4000)
+                    .HasComputedColumnSql("(format([UpdatedDate],'yyyyMMddHHmmssffff'))", false);
+            });
+
+            modelBuilder.Entity<GrievanceStatus>(entity =>
+            {
+                entity.ToTable("GrievanceStatus");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedDateInt)
+                    .HasMaxLength(4000)
+                    .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
+
+                entity.Property(e => e.GrievanceId).HasColumnName("GrievanceID");
+
+                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.UpdatedDateInt)
+                    .HasMaxLength(4000)
+                    .HasComputedColumnSql("(format([UpdatedDate],'yyyyMMddHHmmssffff'))", false);
             });
 
             modelBuilder.Entity<LabWorkshopDetail>(entity =>

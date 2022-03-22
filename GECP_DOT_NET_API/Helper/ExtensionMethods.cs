@@ -84,5 +84,75 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
         #endregion
+
+        #region --> Grievance and Grivance Status
+
+        public static GrievanceVM ToModel(this Grievance obj)
+        {
+            return new GrievanceVM()
+            {
+                Id = obj.Id,
+                Name = obj.Name,
+                EmailId = obj.EmailId,
+                Mobile = obj.Mobile,
+                Subject = obj.Subject,
+                Description = obj.Description,
+                Attachments = obj.Attachments,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+
+        public static Grievance ToContext(this GrievanceVM obj)
+        {
+            return new Grievance()
+            {
+                Id = obj.Id,
+                Name = obj.Name,
+                EmailId = obj.EmailId,
+                Mobile = obj.Mobile,
+                Subject = obj.Subject,
+                Description = obj.Description,
+                Attachments = obj.Attachments,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+
+        public static GrievanceStatusVM ToModel(this GrievanceStatus obj)
+        {
+            return new GrievanceStatusVM()
+            {
+                Id = obj.Id,
+                GrievanceId = obj.GrievanceId,
+                Status = obj.Status,
+                Description = obj.Description,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+
+        public static GrievanceStatus ToContext(this GrievanceStatusVM obj)
+        {
+            return new GrievanceStatus()
+            {
+                Id = obj.Id,
+                GrievanceId = obj.GrievanceId,
+                Status = obj.Status,
+                Description = obj.Description,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+
+        #endregion
     }
 }
