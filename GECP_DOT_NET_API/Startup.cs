@@ -10,9 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GECP_DOT_NET_API.Repository.FacultyRepository;
-using GECP_DOT_NET_API.Repository.CollegeRepository;
-using GECP_DOT_NET_API.Repository.LabWorkshop;
 
 namespace GECP_DOT_NET_API
 {
@@ -29,11 +26,6 @@ namespace GECP_DOT_NET_API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<IFaculty, FacultyServices>();
-            services.AddScoped<ICollege, Collegdetails>();
-            services.AddScoped<ILabWorkshop, LabWorkshopServices>();
-
-            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
