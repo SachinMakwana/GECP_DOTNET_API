@@ -11,10 +11,10 @@ namespace GECP_DOT_NET_API.Database
         public string Name { get; set; }
         public int DeptId { get; set; }
         public int DesignationId { get; set; }
-        public bool? IsDeleted { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public string CreatedDateInt { get; set; }
+        public int? IsDeleted { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public int? CreatedDateInt { get; set; }
         public DateTime? UpdatedDate { get; set; }
-        public string UpdatedDateInt { get; set; }
+        public int? UpdatedDateInt { get; set; }
     }
 }
