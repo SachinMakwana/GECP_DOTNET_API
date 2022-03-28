@@ -35,6 +35,7 @@ namespace GECP_DOT_NET_API.Controllers
         public IActionResult AddFacultyDetail(IFormCollection collection)
         {
             var facultyVM = new FacultyDetailsVM();
+            TryUpdateModelAsync<FacultyDetailsVM>(facultyVM);
             return Ok(ifacultyRepo.AddFacultyDetail(facultyVM));
         }
 
