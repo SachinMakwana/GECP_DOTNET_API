@@ -9,6 +9,87 @@ namespace GECP_DOT_NET_API.Helper
 {
     public static class ExtensionMethods
     {
+        #region --> AttachmentVM
+        public static AttachmentVM ToModel(this Attachment obj)
+        {
+            return new AttachmentVM()
+            {
+                Id = obj.Id,
+                Name = obj.Name,
+                Title = obj.Title,
+                Type = obj.Type,
+                Description = obj.Description,
+                Attachment1 = obj.Attachment1,
+                PageId = obj.PageId,
+                IsDeleted = obj.IsDeleted,
+                IsVisible = obj.IsVisible,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static Attachment ToContext(this AttachmentVM obj)
+        {
+            return new Attachment()
+            {
+                //Id = obj.Id,
+                Name = obj.Name,
+                Title = obj.Title,
+                Type = obj.Type,
+                Description = obj.Description,
+                Attachment1 = obj.Attachment1,
+                PageId = obj.PageId,
+                IsDeleted = obj.IsDeleted,
+                IsVisible = obj.IsVisible,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
+
+        #region --> DepartmentVM
+        public static DepartmentVM ToModel(this Department obj)
+        {
+            return new DepartmentVM()
+            {
+                Id = obj.Id,
+                Name = obj.Name,
+                Description = obj.Description,
+                Head = obj.Head,
+                Message = obj.Message,
+                Image = obj.Image,
+                Slogan = obj.Slogan,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static Department ToContext(this DepartmentVM obj)
+        {
+            return new Department()
+            {
+                //Id = obj.Id,
+                Name = obj.Name,
+                Description = obj.Description,
+                Head = obj.Head,
+                Message = obj.Message,
+                Image = obj.Image,
+                Slogan = obj.Slogan,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+
+        #endregion
+
         #region --> CommitteeVM
         public static CommitteeVM ToModel(this Committee obj)
         {
@@ -44,7 +125,6 @@ namespace GECP_DOT_NET_API.Helper
         }
 
         #endregion
-
 
         #region --> LabWorkshopVM
         public static LabWorkshopVM ToModel(this LabWorkshopDetail obj)
