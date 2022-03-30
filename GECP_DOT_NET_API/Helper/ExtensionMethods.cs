@@ -43,6 +43,39 @@ namespace GECP_DOT_NET_API.Helper
         }
         #endregion
 
+        #region --> CommitteeMembersVM
+        public static CommitteeMembersVM ToModel(this CommitteeMember obj)
+        {
+            return new CommitteeMembersVM()
+            {
+                Id = obj.Id,
+                FacultyId = obj.FacultyId,
+                Role = obj.Role,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+
+        public static CommitteeMember ToContext(this CommitteeMembersVM obj)
+        {
+            return new CommitteeMember()
+            {
+                //Id = obj.Id,
+                FacultyId = obj.FacultyId,
+                Role = obj.Role,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = DateTime.Now,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = DateTime.Now,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+
+        #endregion
+
         #region --> PlacementVM
         public static PlacementVM ToModel(this Placement obj)
         {
@@ -83,6 +116,7 @@ namespace GECP_DOT_NET_API.Helper
                 UpdatedDateInt = obj.UpdatedDateInt
             };
         }
+
         #endregion
     }
 }
