@@ -84,5 +84,39 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
         #endregion
+
+        #region --> DesignationVM
+
+        public static DesignationVM ToModel(this Designation obj)
+        {
+            return new DesignationVM()
+            {
+                Id = obj.Id,
+                Title = obj.Title,
+                Class = obj.Class,
+                Payband = obj.Payband,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static Designation ToContext(this DesignationVM obj)
+        {
+            return new Designation()
+            {
+                Id=obj.Id,
+                Title = obj.Title,
+                Class = obj.Class,
+                Payband = obj.Payband,
+                IsDeleted=obj.IsDeleted,
+                CreatedDate=DateTime.Now,
+                CreatedDateInt=obj.CreatedDateInt,
+                UpdatedDate= DateTime.Now,    
+                UpdatedDateInt=obj.UpdatedDateInt
+            };
+        }
+        #endregion
     }
 }
