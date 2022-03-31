@@ -84,5 +84,39 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
         #endregion
+
+        #region --> NewsVM
+
+        public static NewsVM ToModel(this News obj)
+        {
+            return new NewsVM()
+            {
+                Id = obj.Id,
+                Title = obj.Title,
+                Description = obj.Description,
+                Date = obj.Date,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static News ToContext(this NewsVM obj)
+        {
+            return new News()
+            {
+                Id=obj.Id,
+                Title=obj.Title,
+                Description=obj.Description,
+                Date=obj.Date,
+                IsDeleted=obj.IsDeleted,
+                CreatedDate=obj.CreatedDate,
+                CreatedDateInt=obj.CreatedDateInt,
+                UpdatedDate=obj.UpdatedDate,
+                UpdatedDateInt=obj.UpdatedDateInt
+            };
+        }
+        #endregion
     }
 }
