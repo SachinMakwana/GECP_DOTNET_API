@@ -84,5 +84,36 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
         #endregion
+
+        #region --> GalleryTagVM
+        public static GalleryTagVM ToModel(this GalleryTag obj)
+        {
+            return new GalleryTagVM()
+            {
+                Id = obj.Id,
+                Title = obj.Title,
+                Description = obj.Description,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static GalleryTag ToContext(this GalleryTagVM obj)
+        {
+            return new GalleryTag()
+            {
+                Id = obj.Id,
+                Title = obj.Title,
+                Description = obj.Description,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
     }
 }
