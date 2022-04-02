@@ -84,5 +84,42 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
         #endregion
+
+        #region --> EducationDetailVM
+
+        public static EducationalDetailsVM ToModel(this EducationalDetail obj)
+        {
+            return new EducationalDetailsVM()
+            {
+                Id = obj.Id,
+                FacultyId = obj.FacultyId,
+                Title = obj.Title,
+                BoardCollege = obj.BoardCollege,
+                Passout = obj.Passout,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+
+        public static EducationalDetail ToContext(this EducationalDetailsVM obj)
+        {
+            return new EducationalDetail()
+            {
+                Id=obj.Id,
+                FacultyId = obj.FacultyId,
+                Title = obj.Title,
+                BoardCollege = obj.BoardCollege,
+                Passout = obj.Passout,
+                IsDeleted=obj.IsDeleted,
+                CreatedDate=obj.CreatedDate,
+                CreatedDateInt=obj.CreatedDateInt,
+                UpdatedDate=obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
     }
 }
