@@ -84,5 +84,40 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
         #endregion
+
+        #region --> PublicationVM
+        public static PublicationVM ToModel(this Publication obj)
+        {
+            return new PublicationVM()
+            {
+                Id = obj.Id,
+                FacultyId = obj.FacultyId,
+                Title = obj.Title,
+                Description = obj.Description,
+                Link = obj.Link,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static Publication ToContext(this PublicationVM obj)
+        {
+            return new Publication()
+            {
+                Id = obj.Id,
+                FacultyId = obj.FacultyId,
+                Title = obj.Title,
+                Description = obj.Description,
+                Link = obj.Link,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
     }
 }
