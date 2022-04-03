@@ -84,5 +84,40 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
         #endregion
+
+        #region --> MedaiLinkVM
+        public static MediaLinkVM ToModel(this MediaLink obj)
+        {
+            return new MediaLinkVM()
+            {
+                Id = obj.Id,
+                DeptId = obj.DeptId,
+                Title = obj.Title,
+                Link = obj.Link,
+                IsVisible = obj.IsVisible,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static MediaLink ToContext(this MediaLinkVM obj)
+        {
+            return new MediaLink()
+            {
+                Id = obj.Id,
+                DeptId=obj.DeptId,
+                Title = obj.Title,
+                Link = obj.Link,
+                IsVisible = obj.IsVisible,
+                IsDeleted=obj.IsDeleted,
+                CreatedDate=obj.CreatedDate,
+                CreatedDateInt=obj.CreatedDateInt,
+                UpdatedDate=obj.UpdatedDate,
+                UpdatedDateInt=obj.UpdatedDateInt
+            };
+        }
+        #endregion
     }
 }
