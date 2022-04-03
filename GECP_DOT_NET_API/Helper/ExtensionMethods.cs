@@ -84,5 +84,41 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
         #endregion
+
+
+        #region --> PosrtfolioVM
+        public static PortfolioVM ToModel(this Portfolio obj)
+        {
+            return new PortfolioVM()
+            {
+                Id = obj.Id,
+                FacultyId = obj.FacultyId,
+                Title = obj.Title,
+                Description = obj.Description,
+                Level = obj.Level,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static Portfolio ToContext(this PortfolioVM obj)
+        {
+            return new Portfolio()
+            {
+                Id = obj.Id,
+                FacultyId = obj.FacultyId,
+                Title = obj.Title,
+                Description = obj.Description,
+                Level = obj.Level,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = DateTime.Now,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = DateTime.Now,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
     }
 }
