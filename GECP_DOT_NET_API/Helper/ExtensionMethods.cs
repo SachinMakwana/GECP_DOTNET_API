@@ -84,5 +84,50 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
         #endregion
+
+        #region --> WorkExperienceVM
+        public static WorkExperienceVM ToModel(this WorkExperience obj)
+        {
+            return new WorkExperienceVM()
+            {
+                Id = obj.Id,
+                FacultyId = obj.FacultyId,
+                Title = obj.Title,
+                Organization = obj.Organization,
+                FromDate = obj.FromDate,
+                FromDateInt = obj.FromDateInt,
+                ToDate = obj.ToDate,
+                ToDateInt = obj.ToDateInt,
+                Designation = obj.Designation,
+                Expertise = obj.Expertise,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static WorkExperience ToContext(this WorkExperienceVM obj)
+        {
+            return new WorkExperience()
+            {
+                Id = obj.Id,
+                FacultyId = obj.FacultyId,
+                Title = obj.Title,
+                Organization = obj.Organization,
+                FromDate = obj.FromDate,
+                FromDateInt = obj.FromDateInt,
+                ToDate = obj.ToDate,
+                ToDateInt = obj.ToDateInt,
+                Designation = obj.Designation,
+                Expertise = obj.Expertise,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
     }
 }
