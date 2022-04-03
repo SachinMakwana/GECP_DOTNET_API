@@ -84,5 +84,40 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
         #endregion
+
+        #region --> GalleryVM
+        public static GalleryVM ToModel(this Gallery obj)
+        {
+            return new GalleryVM()
+            {
+                Id = obj.Id,
+                GalleryTagId = obj.GalleryTagId,
+                Name = obj.Name,
+                Extension = obj.Extension,
+                Image = obj.Image,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static Gallery ToContext(this GalleryVM obj)
+        {
+            return new Gallery()
+            {
+                Id = obj.Id,
+                GalleryTagId = obj.GalleryTagId,
+                Name = obj.Name,
+                Extension = obj.Extension,
+                Image = obj.Image,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
     }
 }
