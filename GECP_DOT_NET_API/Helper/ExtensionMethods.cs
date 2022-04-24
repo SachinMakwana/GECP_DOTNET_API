@@ -9,39 +9,7 @@ namespace GECP_DOT_NET_API.Helper
 {
     public static class ExtensionMethods
     {
-        #region --> FacultyDetailsVM
-        public static FacultyDetailsVM ToModel(this FacultyDetail obj)
-        {
-            return new FacultyDetailsVM()
-            {
-                Id = obj.Id,
-                Name = obj.Name,
-                DeptId = obj.DeptId,
-                DesignationId = obj.DesignationId,
-                IsDeleted = obj.IsDeleted,
-                CreatedDate = obj.CreatedDate,
-                CreatedDateInt = obj.CreatedDateInt,
-                UpdatedDate = obj.UpdatedDate,
-                UpdatedDateInt = obj.UpdatedDateInt
-            };
-        }
-
-        public static FacultyDetail ToContext(this FacultyDetailsVM obj)
-        {
-            return new FacultyDetail()
-            {
-                //Id = obj.Id,
-                Name = obj.Name,
-                DeptId = obj.DeptId,
-                DesignationId = obj.DesignationId,
-                IsDeleted = obj.IsDeleted,
-                CreatedDate = obj.CreatedDate,
-                CreatedDateInt = obj.CreatedDateInt,
-                UpdatedDate = obj.UpdatedDate,
-                UpdatedDateInt = obj.UpdatedDateInt
-            };
-        }
-        #endregion
+        
 
         #region --> PlacementVM
         public static PlacementVM ToModel(this Placement obj)
