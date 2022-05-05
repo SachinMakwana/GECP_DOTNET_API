@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-
-#nullable disable
-
-namespace GECP_DOT_NET_API.Database
+namespace GECP_DOT_NET_API.Models
 {
-    public partial class College
+    public class CollegeVM
     {
         public int Id { get; set; }
         public string Name { get; set; }

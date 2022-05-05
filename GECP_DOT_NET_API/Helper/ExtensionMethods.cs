@@ -9,8 +9,6 @@ namespace GECP_DOT_NET_API.Helper
 {
     public static class ExtensionMethods
     {
-        
-
         #region --> PlacementVM
         public static PlacementVM ToModel(this Placement obj)
         {
@@ -44,6 +42,49 @@ namespace GECP_DOT_NET_API.Helper
                 MonthlyPackage = obj.MonthlyPackage,
                 CompanyId = obj.CompanyId,
                 PlacementDate = obj.PlacementDate,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
+
+        #region --> CollegeVM
+        public static CollegeVM ToModel(this College obj)
+        {
+            return new CollegeVM()
+            {
+                Id = obj.Id,
+                Name = obj.Name,
+                Principal = obj.Principal,
+                PrincipalMessage = obj.PrincipalMessage,
+                Description = obj.Description,
+                Address = obj.Address,
+                Phone = obj.Phone,
+                Image = obj.Image,
+                Email = obj.Email,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static College ToContext(this CollegeVM obj)
+        {
+            return new College()
+            {
+                Id = obj.Id,
+                Name = obj.Name,
+                Principal = obj.Principal,
+                PrincipalMessage = obj.PrincipalMessage,
+                Description = obj.Description,
+                Address = obj.Address,
+                Phone = obj.Phone,
+                Image = obj.Image,
+                Email = obj.Email,
                 IsDeleted = obj.IsDeleted,
                 CreatedDate = obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,

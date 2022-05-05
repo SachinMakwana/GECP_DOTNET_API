@@ -235,6 +235,10 @@ namespace GECP_DOT_NET_API.Database
                     .IsRequired()
                     .HasMaxLength(50);
 
+                entity.Property(e => e.Principal)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
                 entity.Property(e => e.PrincipalMessage).IsRequired();
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
