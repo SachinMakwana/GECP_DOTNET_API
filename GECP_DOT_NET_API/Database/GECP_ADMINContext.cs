@@ -60,13 +60,13 @@ namespace GECP_DOT_NET_API.Database
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-CMQ6066\\SQLEXPRESS;Initial Catalog=GECP_ADMIN;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-73J8JS4\\SQLEXPRESS;Initial Catalog=GECP_ADMIN;Integrated Security=True");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AI");
+            modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
             modelBuilder.Entity<Achievement>(entity =>
             {
@@ -99,11 +99,7 @@ namespace GECP_DOT_NET_API.Database
             {
                 entity.ToTable("Affiliation");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
-                entity.Property(e => e.Attachements)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Attachements).IsRequired();
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
@@ -111,9 +107,7 @@ namespace GECP_DOT_NET_API.Database
                     .HasMaxLength(4000)
                     .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
 
-                entity.Property(e => e.Description)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Description).IsRequired();
 
                 entity.Property(e => e.Name)
                     .IsRequired()
@@ -128,11 +122,8 @@ namespace GECP_DOT_NET_API.Database
 
             modelBuilder.Entity<Attachment>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Attachment1)
                     .IsRequired()
-                    .HasMaxLength(50)
                     .HasColumnName("Attachment");
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
@@ -166,8 +157,6 @@ namespace GECP_DOT_NET_API.Database
             {
                 entity.ToTable("BackendMenu");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.ControllerName)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -197,8 +186,6 @@ namespace GECP_DOT_NET_API.Database
             {
                 entity.ToTable("Circular");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
@@ -224,8 +211,6 @@ namespace GECP_DOT_NET_API.Database
             {
                 entity.ToTable("College");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Address).IsRequired();
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
@@ -240,9 +225,7 @@ namespace GECP_DOT_NET_API.Database
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.Image)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Image).IsRequired();
 
                 entity.Property(e => e.Name)
                     .IsRequired()
@@ -265,8 +248,6 @@ namespace GECP_DOT_NET_API.Database
             {
                 entity.ToTable("Committee");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
@@ -275,17 +256,13 @@ namespace GECP_DOT_NET_API.Database
 
                 entity.Property(e => e.Description).IsRequired();
 
-                entity.Property(e => e.Image)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Image).IsRequired();
 
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.Slogan)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Slogan).IsRequired();
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
 
@@ -296,8 +273,6 @@ namespace GECP_DOT_NET_API.Database
 
             modelBuilder.Entity<CommitteeMember>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
@@ -319,8 +294,6 @@ namespace GECP_DOT_NET_API.Database
             {
                 entity.ToTable("Company");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
@@ -329,13 +302,9 @@ namespace GECP_DOT_NET_API.Database
 
                 entity.Property(e => e.Description).IsRequired();
 
-                entity.Property(e => e.Image)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Image).IsRequired();
 
-                entity.Property(e => e.Logo)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Logo).IsRequired();
 
                 entity.Property(e => e.RelevantDepartments).IsRequired();
 
@@ -354,8 +323,6 @@ namespace GECP_DOT_NET_API.Database
             {
                 entity.ToTable("Department");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
@@ -364,9 +331,7 @@ namespace GECP_DOT_NET_API.Database
 
                 entity.Property(e => e.Description).IsRequired();
 
-                entity.Property(e => e.Image)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Image).IsRequired();
 
                 entity.Property(e => e.Message).IsRequired();
 
@@ -374,9 +339,7 @@ namespace GECP_DOT_NET_API.Database
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.Slogan)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Slogan).IsRequired();
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
 
@@ -387,8 +350,6 @@ namespace GECP_DOT_NET_API.Database
 
             modelBuilder.Entity<DepartmentAmenty>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
@@ -404,8 +365,6 @@ namespace GECP_DOT_NET_API.Database
 
             modelBuilder.Entity<Designation>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Class)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -416,7 +375,9 @@ namespace GECP_DOT_NET_API.Database
                     .HasMaxLength(4000)
                     .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
 
-                entity.Property(e => e.Payband).HasMaxLength(50);
+                entity.Property(e => e.Payband)
+                    .IsRequired()
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.Title)
                     .IsRequired()
@@ -432,8 +393,6 @@ namespace GECP_DOT_NET_API.Database
             modelBuilder.Entity<DynamicPage>(entity =>
             {
                 entity.ToTable("DynamicPage");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
@@ -460,11 +419,7 @@ namespace GECP_DOT_NET_API.Database
 
             modelBuilder.Entity<EducationalDetail>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
-                entity.Property(e => e.BoardCollege)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.BoardCollege).IsRequired();
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
@@ -472,7 +427,7 @@ namespace GECP_DOT_NET_API.Database
                     .HasMaxLength(4000)
                     .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
 
-                entity.Property(e => e.Passout).HasMaxLength(50);
+                entity.Property(e => e.Passout).IsRequired();
 
                 entity.Property(e => e.Title)
                     .IsRequired()
@@ -488,8 +443,6 @@ namespace GECP_DOT_NET_API.Database
             modelBuilder.Entity<ExternalFacultyDetail>(entity =>
             {
                 entity.ToTable("ExternalFacultyDetail");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
@@ -520,17 +473,13 @@ namespace GECP_DOT_NET_API.Database
             {
                 entity.ToTable("FacultyDetail");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
                     .HasMaxLength(4000)
                     .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
 
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Name).IsRequired();
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
 
@@ -542,8 +491,6 @@ namespace GECP_DOT_NET_API.Database
             modelBuilder.Entity<FrontendMenu>(entity =>
             {
                 entity.ToTable("FrontendMenu");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.ControllerName)
                     .IsRequired()
@@ -574,21 +521,13 @@ namespace GECP_DOT_NET_API.Database
             {
                 entity.ToTable("Gallery");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
                     .HasMaxLength(4000)
                     .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
 
-                entity.Property(e => e.Extension)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Image)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Image).IsRequired();
 
                 entity.Property(e => e.Name)
                     .IsRequired()
@@ -604,8 +543,6 @@ namespace GECP_DOT_NET_API.Database
             modelBuilder.Entity<GalleryTag>(entity =>
             {
                 entity.ToTable("GalleryTag");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
@@ -629,8 +566,6 @@ namespace GECP_DOT_NET_API.Database
             modelBuilder.Entity<GeneralLog>(entity =>
             {
                 entity.ToTable("GeneralLog");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
@@ -664,8 +599,6 @@ namespace GECP_DOT_NET_API.Database
 
             modelBuilder.Entity<LabWorkshopDetail>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
@@ -674,9 +607,7 @@ namespace GECP_DOT_NET_API.Database
 
                 entity.Property(e => e.Description).IsRequired();
 
-                entity.Property(e => e.Image)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Image).IsRequired();
 
                 entity.Property(e => e.Name)
                     .IsRequired()
@@ -691,17 +622,13 @@ namespace GECP_DOT_NET_API.Database
 
             modelBuilder.Entity<MediaLink>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
                     .HasMaxLength(4000)
                     .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
 
-                entity.Property(e => e.Link)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Link).IsRequired();
 
                 entity.Property(e => e.Title)
                     .IsRequired()
@@ -716,8 +643,6 @@ namespace GECP_DOT_NET_API.Database
 
             modelBuilder.Entity<MenuItem>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
@@ -734,8 +659,6 @@ namespace GECP_DOT_NET_API.Database
             modelBuilder.Entity<MicroLog>(entity =>
             {
                 entity.ToTable("MicroLog");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
@@ -760,8 +683,6 @@ namespace GECP_DOT_NET_API.Database
             {
                 entity.ToTable("MiniLog");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
@@ -785,8 +706,6 @@ namespace GECP_DOT_NET_API.Database
             {
                 entity.ToTable("Mission");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
@@ -804,8 +723,6 @@ namespace GECP_DOT_NET_API.Database
 
             modelBuilder.Entity<News>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
@@ -829,8 +746,6 @@ namespace GECP_DOT_NET_API.Database
 
             modelBuilder.Entity<ParentItem>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
@@ -858,9 +773,7 @@ namespace GECP_DOT_NET_API.Database
 
                 entity.Property(e => e.PlacementDate).HasColumnType("datetime");
 
-                entity.Property(e => e.StudentName)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.StudentName).IsRequired();
 
                 entity.Property(e => e.StudentPic).IsRequired();
 
@@ -873,8 +786,6 @@ namespace GECP_DOT_NET_API.Database
 
             modelBuilder.Entity<Portfolio>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
@@ -898,8 +809,6 @@ namespace GECP_DOT_NET_API.Database
 
             modelBuilder.Entity<Publication>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
@@ -907,8 +816,6 @@ namespace GECP_DOT_NET_API.Database
                     .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
 
                 entity.Property(e => e.Description).IsRequired();
-
-                entity.Property(e => e.Link).HasMaxLength(50);
 
                 entity.Property(e => e.Title)
                     .IsRequired()
@@ -924,8 +831,6 @@ namespace GECP_DOT_NET_API.Database
             modelBuilder.Entity<Role>(entity =>
             {
                 entity.ToTable("Role");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
@@ -946,8 +851,6 @@ namespace GECP_DOT_NET_API.Database
 
             modelBuilder.Entity<SsipProject>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
@@ -969,8 +872,6 @@ namespace GECP_DOT_NET_API.Database
 
             modelBuilder.Entity<Tag>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
@@ -990,8 +891,6 @@ namespace GECP_DOT_NET_API.Database
 
             modelBuilder.Entity<Tender>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
@@ -1017,8 +916,6 @@ namespace GECP_DOT_NET_API.Database
             {
                 entity.ToTable("Vision");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
@@ -1038,21 +935,15 @@ namespace GECP_DOT_NET_API.Database
             {
                 entity.ToTable("WorkExperience");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CreatedDateInt)
                     .HasMaxLength(4000)
                     .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
 
-                entity.Property(e => e.Designation)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Designation).IsRequired();
 
-                entity.Property(e => e.Expertise)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Expertise).IsRequired();
 
                 entity.Property(e => e.FromDate).HasColumnType("datetime");
 
@@ -1060,13 +951,9 @@ namespace GECP_DOT_NET_API.Database
                     .HasMaxLength(4000)
                     .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
 
-                entity.Property(e => e.Organization)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Organization).IsRequired();
 
-                entity.Property(e => e.Title)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Title).IsRequired();
 
                 entity.Property(e => e.ToDate).HasColumnType("datetime");
 

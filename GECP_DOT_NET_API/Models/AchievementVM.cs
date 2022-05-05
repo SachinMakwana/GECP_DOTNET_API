@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 
-#nullable disable
-
-namespace GECP_DOT_NET_API.Database
+namespace GECP_DOT_NET_API.Models
 {
-    public partial class Attachment
+    public class AchievementVM
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Name { get; set; }
-        public string Type { get; set; }
         public string Description { get; set; }
-        public string Attachment1 { get; set; }
-        public int PageId { get; set; }
+        public string Image { get; set; }
+        public string Tag { get; set; }
+        public DateTime? Date { get; set; }
         public bool? IsVisible { get; set; }
         public bool? IsDeleted { get; set; }
         public DateTime? CreatedDate { get; set; }
