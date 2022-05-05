@@ -9,7 +9,6 @@ namespace GECP_DOT_NET_API.Helper
 {
     public static class ExtensionMethods
     {
-        
         #region --> PlacementVM
         public static PlacementVM ToModel(this Placement obj)
         {
@@ -91,6 +90,47 @@ namespace GECP_DOT_NET_API.Helper
                 CreatedDateInt = obj.CreatedDateInt,
                 UpdatedDate = obj.UpdatedDate,
                 UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
+
+        #region --> AchivementVM
+
+        public static AchievementVM ToModel(this Achievement obj)
+        {
+            return new AchievementVM()
+            {
+                Id = obj.Id,
+                Title = obj.Title,
+                Description = obj.Description,
+                Image = obj.Image,
+                Tag = obj.Tag,
+                Date = obj.Date,
+                IsVisible = obj.IsVisible,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+
+        public static Achievement ToContext(this AchievementVM obj)
+        {
+            return new Achievement()
+            {
+                Id=obj.Id,
+                Title = obj.Title,
+                Description = obj.Description,
+                Image = obj.Image,
+                Tag = obj.Tag,
+                Date = obj.Date,
+                IsVisible = obj.IsVisible,
+                IsDeleted=obj.IsDeleted,
+                CreatedDate=obj.CreatedDate,
+                CreatedDateInt=obj.CreatedDateInt,
+                UpdatedDate=obj.UpdatedDate,
+                UpdatedDateInt=obj.UpdatedDateInt
             };
         }
         #endregion
