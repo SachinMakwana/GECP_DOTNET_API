@@ -19,7 +19,7 @@ namespace GECP_DOT_NET_API.Helper
                 DeptId = obj.DeptId,
                 DesignationId = obj.DesignationId,
                 IsDeleted = obj.IsDeleted,
-                CreatedDate = obj.CreatedDate,
+                CreatedDate = (DateTime)obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,
                 UpdatedDate = obj.UpdatedDate,
                 UpdatedDateInt = obj.UpdatedDateInt
@@ -101,7 +101,7 @@ namespace GECP_DOT_NET_API.Helper
                 Designation = obj.Designation,
                 Expertise = obj.Expertise,
                 IsDeleted = obj.IsDeleted,
-                CreatedDate = obj.CreatedDate,
+                CreatedDate = (DateTime)obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,
                 UpdatedDate = obj.UpdatedDate,
                 UpdatedDateInt = obj.UpdatedDateInt
