@@ -9,6 +9,7 @@ namespace GECP_DOT_NET_API.Helper
 {
     public static class ExtensionMethods
     {
+      
         #region --> DynamicPageVM
         public static DynamicPage ToContext(this DynamicPageVM obj)
         {
@@ -23,8 +24,9 @@ namespace GECP_DOT_NET_API.Helper
                 CreatedDateInt = obj.CreatedDateInt,
                 UpdatedDate = obj.UpdatedDate,
                 UpdatedDateInt = obj.UpdatedDateInt
-            };
+             };
         }
+              
         public static DynamicPageVM ToModel(this DynamicPage obj)
         {
             return new DynamicPageVM()
@@ -38,10 +40,9 @@ namespace GECP_DOT_NET_API.Helper
                 CreatedDateInt = obj.CreatedDateInt,
                 UpdatedDate = obj.UpdatedDate,
                 UpdatedDateInt = obj.UpdatedDateInt
-            };
-        }
-        #endregion
-
+              };
+          }
+                  
         #region --> PlacementVM
         public static PlacementVM ToModel(this Placement obj)
         {
@@ -62,6 +63,8 @@ namespace GECP_DOT_NET_API.Helper
                 UpdatedDateInt = obj.UpdatedDateInt
             };
         }
+              
+        
 
         public static Placement ToContext(this PlacementVM obj)
         {
@@ -80,6 +83,90 @@ namespace GECP_DOT_NET_API.Helper
                 CreatedDateInt = obj.CreatedDateInt,
                 UpdatedDate = obj.UpdatedDate,
                 UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
+
+        #region --> CollegeVM
+        public static CollegeVM ToModel(this College obj)
+        {
+            return new CollegeVM()
+            {
+                Id = obj.Id,
+                Name = obj.Name,
+                Principal = obj.Principal,
+                PrincipalMessage = obj.PrincipalMessage,
+                Description = obj.Description,
+                Address = obj.Address,
+                Phone = obj.Phone,
+                Image = obj.Image,
+                Email = obj.Email,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static College ToContext(this CollegeVM obj)
+        {
+            return new College()
+            {
+                Id = obj.Id,
+                Name = obj.Name,
+                Principal = obj.Principal,
+                PrincipalMessage = obj.PrincipalMessage,
+                Description = obj.Description,
+                Address = obj.Address,
+                Phone = obj.Phone,
+                Image = obj.Image,
+                Email = obj.Email,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
+
+        #region --> AchivementVM
+
+        public static AchievementVM ToModel(this Achievement obj)
+        {
+            return new AchievementVM()
+            {
+                Id = obj.Id,
+                Title = obj.Title,
+                Description = obj.Description,
+                Image = obj.Image,
+                Tag = obj.Tag,
+                Date = obj.Date,
+                IsVisible = obj.IsVisible,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+
+        public static Achievement ToContext(this AchievementVM obj)
+        {
+            return new Achievement()
+            {
+                Id=obj.Id,
+                Title = obj.Title,
+                Description = obj.Description,
+                Image = obj.Image,
+                Tag = obj.Tag,
+                Date = obj.Date,
+                IsVisible = obj.IsVisible,
+                IsDeleted=obj.IsDeleted,
+                CreatedDate=obj.CreatedDate,
+                CreatedDateInt=obj.CreatedDateInt,
+                UpdatedDate=obj.UpdatedDate,
+                UpdatedDateInt=obj.UpdatedDateInt
             };
         }
         #endregion
