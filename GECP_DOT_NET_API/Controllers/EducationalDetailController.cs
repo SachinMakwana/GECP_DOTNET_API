@@ -26,7 +26,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(response);
         }
 
-        [HttpPost, Route("api/AddPlacementDetail")]
+        [HttpPost, Route("api/AddEducationDetail")]
         public IActionResult AddEducationDetail()
         {
             var educationDetailVM = new EducationalDetailsVM();
