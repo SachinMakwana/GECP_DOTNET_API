@@ -9,15 +9,19 @@ namespace GECP_DOT_NET_API.Helper
 {
     public static class ExtensionMethods
     {
-        #region --> FacultyDetailsVM
-        public static FacultyDetailsVM ToModel(this FacultyDetail obj)
+        #region --> PlacementVM
+        public static PlacementVM ToModel(this Placement obj)
         {
-            return new FacultyDetailsVM()
+            return new PlacementVM()
             {
                 Id = obj.Id,
-                Name = obj.Name,
+                StudentName = obj.StudentName,
+                StudentPic = obj.StudentPic,
                 DeptId = obj.DeptId,
-                DesignationId = obj.DesignationId,
+                AnnualPackage = obj.AnnualPackage,
+                MonthlyPackage = obj.MonthlyPackage,
+                CompanyId = obj.CompanyId,
+                PlacementDate = obj.PlacementDate,
                 IsDeleted = obj.IsDeleted,
                 CreatedDate = (DateTime)obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,
@@ -26,14 +30,18 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
 
-        public static FacultyDetail ToContext(this FacultyDetailsVM obj)
+        public static Placement ToContext(this PlacementVM obj)
         {
-            return new FacultyDetail()
+            return new Placement()
             {
-                //Id = obj.Id,
-                Name = obj.Name,
+                Id = obj.Id,
+                StudentName = obj.StudentName,
+                StudentPic = obj.StudentPic,
                 DeptId = obj.DeptId,
-                DesignationId = obj.DesignationId,
+                AnnualPackage = obj.AnnualPackage,
+                MonthlyPackage = obj.MonthlyPackage,
+                CompanyId = obj.CompanyId,
+                PlacementDate = obj.PlacementDate,
                 IsDeleted = obj.IsDeleted,
                 CreatedDate = obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,
@@ -74,21 +82,64 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
 
+        #endregion 
+          
+        #region --> CollegeVM
+        public static CollegeVM ToModel(this College obj)
+        {
+            return new CollegeVM()
+            {
+                Id = obj.Id,
+                Name = obj.Name,
+                Principal = obj.Principal,
+                PrincipalMessage = obj.PrincipalMessage,
+                Description = obj.Description,
+                Address = obj.Address,
+                Phone = obj.Phone,
+                Image = obj.Image,
+                Email = obj.Email,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static College ToContext(this CollegeVM obj)
+        {
+            return new College()
+            {
+                Id = obj.Id,
+                Name = obj.Name,
+                Principal = obj.Principal,
+                PrincipalMessage = obj.PrincipalMessage,
+                Description = obj.Description,
+                Address = obj.Address,
+                Phone = obj.Phone,
+                Image = obj.Image,
+                Email = obj.Email,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
         #endregion
 
-        #region --> PlacementVM
-        public static PlacementVM ToModel(this Placement obj)
+        #region --> AchivementVM
+
+        public static AchievementVM ToModel(this Achievement obj)
         {
-            return new PlacementVM()
+            return new AchievementVM()
             {
                 Id = obj.Id,
-                StudentName = obj.StudentName,
-                StudentPic = obj.StudentPic,
-                DeptId = obj.DeptId,
-                AnnualPackage = obj.AnnualPackage,
-                MonthlyPackage = obj.MonthlyPackage,
-                CompanyId = obj.CompanyId,
-                PlacementDate = obj.PlacementDate,
+                Title = obj.Title,
+                Description = obj.Description,
+                Image = obj.Image,
+                Tag = obj.Tag,
+                Date = obj.Date,
+                IsVisible = obj.IsVisible,
                 IsDeleted = obj.IsDeleted,
                 CreatedDate = obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,
@@ -97,26 +148,24 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
 
-        public static Placement ToContext(this PlacementVM obj)
+        public static Achievement ToContext(this AchievementVM obj)
         {
-            return new Placement()
+            return new Achievement()
             {
-                Id = obj.Id,
-                StudentName = obj.StudentName,
-                StudentPic = obj.StudentPic,
-                DeptId = obj.DeptId,
-                AnnualPackage = obj.AnnualPackage,
-                MonthlyPackage = obj.MonthlyPackage,
-                CompanyId = obj.CompanyId,
-                PlacementDate = obj.PlacementDate,
-                IsDeleted = obj.IsDeleted,
-                CreatedDate = obj.CreatedDate,
-                CreatedDateInt = obj.CreatedDateInt,
-                UpdatedDate = obj.UpdatedDate,
-                UpdatedDateInt = obj.UpdatedDateInt
+                Id=obj.Id,
+                Title = obj.Title,
+                Description = obj.Description,
+                Image = obj.Image,
+                Tag = obj.Tag,
+                Date = obj.Date,
+                IsVisible = obj.IsVisible,
+                IsDeleted=obj.IsDeleted,
+                CreatedDate=obj.CreatedDate,
+                CreatedDateInt=obj.CreatedDateInt,
+                UpdatedDate=obj.UpdatedDate,
+                UpdatedDateInt=obj.UpdatedDateInt
             };
         }
-
         #endregion
     }
 }
