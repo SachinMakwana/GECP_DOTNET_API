@@ -20,7 +20,7 @@ namespace GECP_DOT_NET_API.Helper
                 DeptId = obj.DeptId,
                 DesignationId = obj.DesignationId,
                 IsDeleted = obj.IsDeleted,
-                CreatedDate = obj.CreatedDate,
+                CreatedDate = (DateTime)obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,
                 UpdatedDate = obj.UpdatedDate,
                 UpdatedDateInt = obj.UpdatedDateInt
@@ -73,9 +73,9 @@ namespace GECP_DOT_NET_API.Helper
                 Image = obj.Image,
                 Logo = obj.Logo,
                 IsDeleted = obj.IsDeleted,
-                CreatedDate = DateTime.Now,
+                CreatedDate = obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,
-                UpdatedDate = DateTime.Now,
+                UpdatedDate = obj.UpdatedDate,
                 UpdatedDateInt = obj.UpdatedDateInt
             };
         }
