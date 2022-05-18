@@ -43,6 +43,43 @@ namespace GECP_DOT_NET_API.Helper
         }
         #endregion
 
+#region --> EducationDetailVM
+
+        public static EducationalDetailsVM ToModel(this EducationalDetail obj)
+        {
+            return new EducationalDetailsVM()
+            {
+                Id = obj.Id,
+                FacultyId = obj.FacultyId,
+                Title = obj.Title,
+                BoardCollege = obj.BoardCollege,
+                Passout = obj.Passout,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+
+        public static EducationalDetail ToContext(this EducationalDetailsVM obj)
+        {
+            return new EducationalDetail()
+            {
+                Id=obj.Id,
+                FacultyId = obj.FacultyId,
+                Title = obj.Title,
+                BoardCollege = obj.BoardCollege,
+                Passout = obj.Passout,
+                IsDeleted=obj.IsDeleted,
+                CreatedDate=obj.CreatedDate,
+                CreatedDateInt=obj.CreatedDateInt,
+                UpdatedDate=obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion          
+
         #region --> PlacementVM
         public static PlacementVM ToModel(this Placement obj)
         {
@@ -84,7 +121,7 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
         #endregion
-        
+
         #region --> GalleryTagVM
         public static GalleryTagVM ToModel(this GalleryTag obj)
         {
@@ -164,13 +201,7 @@ namespace GECP_DOT_NET_API.Helper
                 UpdatedDateInt = obj.UpdatedDateInt
             };
         }
-        public static GalleryTag ToContext(this GalleryTagVM obj)
-        {
-            return new GalleryTag()
-            {
-                Id = obj.Id,
-                Title = obj.Title,
-                Description = obj.Description,
+
         public static News ToContext(this NewsVM obj)
         {
             return new News()
@@ -183,7 +214,7 @@ namespace GECP_DOT_NET_API.Helper
                 CreatedDate=obj.CreatedDate,
                 CreatedDateInt=obj.CreatedDateInt,
                 UpdatedDate=obj.UpdatedDate,
-                UpdatedDateInt=obj.UpdatedDateInt
+                UpdatedDateInt = obj.UpdatedDateInt
             };
         }
         #endregion
