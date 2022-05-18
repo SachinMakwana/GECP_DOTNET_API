@@ -123,6 +123,7 @@ namespace GECP_DOT_NET_API.Helper
         #endregion
 
 
+
         #region --> GalleryTagVM
         public static GalleryTagVM ToModel(this GalleryTag obj)
         {
@@ -418,6 +419,8 @@ namespace GECP_DOT_NET_API.Helper
                 Id = obj.Id,
                 FacultyId = obj.FacultyId,
                 Title = obj.Title,
+                Description = obj.Description,
+                Link = obj.Link,
                 Organization = obj.Organization,
                 FromDate = obj.FromDate,
                 FromDateInt = obj.FromDateInt,
@@ -425,7 +428,6 @@ namespace GECP_DOT_NET_API.Helper
                 ToDateInt = obj.ToDateInt,
                 Designation = obj.Designation,
                 Expertise = obj.Expertise,
-
                 Description = obj.Description,
                 Level = obj.Level,
                 IsDeleted = obj.IsDeleted,
@@ -435,6 +437,7 @@ namespace GECP_DOT_NET_API.Helper
                 UpdatedDateInt = obj.UpdatedDateInt
             };
         }
+
         public static Portfolio ToContext(this PortfolioVM obj)
         {
             return new Portfolio()
@@ -443,6 +446,7 @@ namespace GECP_DOT_NET_API.Helper
                 FacultyId = obj.FacultyId,
                 Title = obj.Title,
                 Description = obj.Description,
+                Link = obj.Link,
                 Level = obj.Level,
                 IsDeleted = obj.IsDeleted,
                 CreatedDate = DateTime.Now,
@@ -524,6 +528,41 @@ namespace GECP_DOT_NET_API.Helper
                 Name = obj.Name,
                 Extension = obj.Extension,
                 Image = obj.Image,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
+        
+        #region --> PublicationVM
+        public static PublicationVM ToModel(this Publication obj)
+        {
+            return new PublicationVM()
+            {
+                Id = obj.Id,
+                FacultyId = obj.FacultyId,
+                Title = obj.Title,
+                Description = obj.Description,
+                Link = obj.Link,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static Publication ToContext(this PublicationVM obj)
+        {
+            return new Publication()
+            {
+                Id = obj.Id,
+                FacultyId = obj.FacultyId,
+                Title = obj.Title,
+                Description = obj.Description,
+                Link = obj.Link,
                 IsDeleted = obj.IsDeleted,
                 CreatedDate = obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,
