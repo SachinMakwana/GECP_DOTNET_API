@@ -1,5 +1,6 @@
 ﻿using GECP_DOT_NET_API.Database;
 using GECP_DOT_NET_API.Models;
+using System;
 
 namespace GECP_DOT_NET_API.Helper
 {
@@ -17,7 +18,6 @@ namespace GECP_DOT_NET_API.Helper
                 DeptId = obj.DeptId,
                 DesignationId = obj.DesignationId,
                 IsDeleted = obj.IsDeleted,
-                CreatedDate = (System.DateTime)obj.CreatedDate,
                 CreatedDate = (DateTime)obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,
                 UpdatedDate = obj.UpdatedDate,
@@ -121,7 +121,6 @@ namespace GECP_DOT_NET_API.Helper
         }
         #endregion
 
-     
         #region --> GalleryTagVM
         public static GalleryTagVM ToModel(this GalleryTag obj)
         {
@@ -186,6 +185,38 @@ namespace GECP_DOT_NET_API.Helper
         }
         #endregion
 
+        #region --> MissionVM
+        public static MissionVM ToModel(this Mission obj)
+        {
+            return new MissionVM()
+            {
+                Id = obj.Id,
+                DeptId = obj.DeptId,
+                Description = obj.Description,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = (DateTime)obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+
+        public static Mission ToContext(this MissionVM obj)
+        {
+            return new Mission()
+            {
+                Id = obj.Id,
+                DeptId = obj.DeptId,
+                Description = obj.Description,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
+
         #region --> NewsVM
 
         public static NewsVM ToModel(this News obj)
@@ -220,7 +251,6 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
         #endregion
-
 
         #region --> DesignationVM
 
@@ -257,7 +287,6 @@ namespace GECP_DOT_NET_API.Helper
         }
         #endregion
 
-    
         #region --> CommitteeMembersVM
         public static CommitteeMembersVM ToModel(this CommitteeMember obj)
         {
@@ -407,7 +436,7 @@ namespace GECP_DOT_NET_API.Helper
         }
         #endregion
           
-        #region --> PosrtfolioVM
+        #region --> PortfolioVM
         public static PortfolioVM ToModel(this Portfolio obj)
         {
             return new PortfolioVM()
@@ -415,15 +444,6 @@ namespace GECP_DOT_NET_API.Helper
                 Id = obj.Id,
                 FacultyId = obj.FacultyId,
                 Title = obj.Title,
-                Description = obj.Description,
-                Link = obj.Link,
-                Organization = obj.Organization,
-                FromDate = obj.FromDate,
-                FromDateInt = obj.FromDateInt,
-                ToDate = obj.ToDate,
-                ToDateInt = obj.ToDateInt,
-                Designation = obj.Designation,
-                Expertise = obj.Expertise,
                 Description = obj.Description,
                 Level = obj.Level,
                 IsDeleted = obj.IsDeleted,
@@ -442,12 +462,11 @@ namespace GECP_DOT_NET_API.Helper
                 FacultyId = obj.FacultyId,
                 Title = obj.Title,
                 Description = obj.Description,
-                Link = obj.Link,
                 Level = obj.Level,
                 IsDeleted = obj.IsDeleted,
-                CreatedDate = DateTime.Now,
+                CreatedDate = obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,
-                UpdatedDate = DateTime.Now,
+                UpdatedDate = obj.UpdatedDate,
                 UpdatedDateInt = obj.UpdatedDateInt
             };
         }
@@ -678,5 +697,4 @@ namespace GECP_DOT_NET_API.Helper
         #endregion
         
     }
-  
 }
