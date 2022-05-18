@@ -106,7 +106,7 @@ namespace GECP_DOT_NET_API.Repository
             try
             {
 
-                Tender dbObject = DBEntities.Tenders.Where(m => m.Id == circularVM.Id).FirstOrDefault();
+                Circular dbObject = DBEntities.Circulars.Where(m => m.Id == circularVM.Id).FirstOrDefault();
                 if (dbObject == null)
                 {
                     serviceReponse.data = false;
