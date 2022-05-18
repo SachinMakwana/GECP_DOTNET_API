@@ -1,9 +1,6 @@
 ﻿using GECP_DOT_NET_API.Database;
 using GECP_DOT_NET_API.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace GECP_DOT_NET_API.Helper
 {
@@ -84,7 +81,40 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
         #endregion
+          
+        #region --> MissionVM
 
+        public static MissionVM ToModel(this Mission obj)
+        {
+            return new MissionVM()
+            {
+                Id = obj.Id,
+                DeptId = obj.DeptId,
+                Description = obj.Description,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = (DateTime)obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static Mission ToContext(this MissionVM obj)
+        {
+            return new Mission()
+            {
+                Id = obj.Id,
+                DeptId = obj.DeptId,
+                Description = obj.Description,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = DateTime.Now,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = DateTime.Now,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
+          
+          
         #region --> VisionVM
         public static VisionVM ToModel(this Vision obj)
         {
@@ -100,6 +130,8 @@ namespace GECP_DOT_NET_API.Helper
                 UpdatedDateInt = obj.UpdatedDateInt
             };
         }
+
+
         public static Vision ToContext(this VisionVM obj)
         {
             return new Vision()
