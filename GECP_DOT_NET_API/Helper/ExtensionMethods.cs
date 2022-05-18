@@ -122,6 +122,8 @@ namespace GECP_DOT_NET_API.Helper
         }
         #endregion
 
+ 
+
         #region --> GalleryTagVM
         public static GalleryTagVM ToModel(this GalleryTag obj)
         {
@@ -408,7 +410,7 @@ namespace GECP_DOT_NET_API.Helper
         }
         #endregion
           
- #region --> PosrtfolioVM
+        #region --> PosrtfolioVM
         public static PortfolioVM ToModel(this Portfolio obj)
         {
             return new PortfolioVM()
@@ -416,6 +418,14 @@ namespace GECP_DOT_NET_API.Helper
                 Id = obj.Id,
                 FacultyId = obj.FacultyId,
                 Title = obj.Title,
+                Organization = obj.Organization,
+                FromDate = obj.FromDate,
+                FromDateInt = obj.FromDateInt,
+                ToDate = obj.ToDate,
+                ToDateInt = obj.ToDateInt,
+                Designation = obj.Designation,
+                Expertise = obj.Expertise,
+
                 Description = obj.Description,
                 Level = obj.Level,
                 IsDeleted = obj.IsDeleted,
@@ -442,5 +452,51 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
         #endregion
+        
+        #region --> WorkExperienceVM
+        public static WorkExperienceVM ToModel(this WorkExperience obj)
+        {
+            return new WorkExperienceVM()
+            {
+                Id = obj.Id,
+                FacultyId = obj.FacultyId,
+                Title = obj.Title,
+                Organization = obj.Organization,
+                FromDate = obj.FromDate,
+                FromDateInt = obj.FromDateInt,
+                ToDate = obj.ToDate,
+                ToDateInt = obj.ToDateInt,
+                Designation = obj.Designation,
+                Expertise = obj.Expertise,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = (DateTime)obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static WorkExperience ToContext(this WorkExperienceVM obj)
+        {
+            return new WorkExperience()
+            {
+                Id = obj.Id,
+                FacultyId = obj.FacultyId,
+                Title = obj.Title,
+                Organization = obj.Organization,
+                FromDate = obj.FromDate,
+                FromDateInt = obj.FromDateInt,
+                ToDate = obj.ToDate,
+                ToDateInt = obj.ToDateInt,
+                Designation = obj.Designation,
+                Expertise = obj.Expertise,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
     }
+  
 }
