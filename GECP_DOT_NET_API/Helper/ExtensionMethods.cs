@@ -122,7 +122,6 @@ namespace GECP_DOT_NET_API.Helper
         }
         #endregion
 
- 
 
         #region --> GalleryTagVM
         public static GalleryTagVM ToModel(this GalleryTag obj)
@@ -334,6 +333,7 @@ namespace GECP_DOT_NET_API.Helper
                 UpdatedDateInt = obj.UpdatedDateInt
             };
         }
+
         #endregion
  
         #region -> TenderVM
@@ -489,6 +489,41 @@ namespace GECP_DOT_NET_API.Helper
                 ToDateInt = obj.ToDateInt,
                 Designation = obj.Designation,
                 Expertise = obj.Expertise,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
+        
+        #region --> GalleryVM
+        public static GalleryVM ToModel(this Gallery obj)
+        {
+            return new GalleryVM()
+            {
+                Id = obj.Id,
+                GalleryTagId = obj.GalleryTagId,
+                Name = obj.Name,
+                Extension = obj.Extension,
+                Image = obj.Image,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static Gallery ToContext(this GalleryVM obj)
+        {
+            return new Gallery()
+            {
+                Id = obj.Id,
+                GalleryTagId = obj.GalleryTagId,
+                Name = obj.Name,
+                Extension = obj.Extension,
+                Image = obj.Image,
                 IsDeleted = obj.IsDeleted,
                 CreatedDate = obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,
