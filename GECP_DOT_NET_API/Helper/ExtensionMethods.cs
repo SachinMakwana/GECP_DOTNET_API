@@ -121,42 +121,39 @@ namespace GECP_DOT_NET_API.Helper
         }
         #endregion
 
-        #region -> GalleryVM
-        public static Gallery ToContext(this GalleryVM obj)
-        {
+        #region -> CircularVM
 
-            return new Gallery()
+        public static Circular ToContext(this CircularVM obj)
+        {
+            return new Circular()
             {
                 Id = obj.Id,
-                Name = obj.Name,
-                CreatedDate = obj.CreatedDate,
-                CreatedDateInt = obj.CreatedDateInt,
-                Extension = obj.Extension,
-                GalleryTagId = obj.GalleryTagId,
-                Image = obj.Image,
-                IsDeleted = obj.IsDeleted,
-                UpdatedDate = obj.UpdatedDate,
+                Title = obj.Title,
+                Date = obj.Date,
+                IsDeleted=obj.IsDeleted,
+                CreatedDate=obj.CreatedDate,
+                Description=obj.Description,
+                CreatedDateInt=obj.CreatedDateInt,
+                UpdatedDate=obj.UpdatedDate,
                 UpdatedDateInt = obj.UpdatedDateInt
-
             };
         }
 
-        public static GalleryVM ToModel(this Gallery obj)
+        public static CircularVM ToModel(this Circular obj)
         {
-            return new GalleryVM()
+            return new CircularVM()
             {
                 Id = obj.Id,
-                Name = obj.Name,
-                CreatedDate = obj.CreatedDate,
-                CreatedDateInt = obj.CreatedDateInt,
-                Extension = obj.Extension,
-                GalleryTagId = obj.GalleryTagId,
-                Image = obj.Image,
+                Title = obj.Title,
+                Date = obj.Date,
                 IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                Description = obj.Description,
+                CreatedDateInt = obj.CreatedDateInt,
                 UpdatedDate = obj.UpdatedDate,
                 UpdatedDateInt = obj.UpdatedDateInt
-
             };
+
         }
         #endregion
     }
