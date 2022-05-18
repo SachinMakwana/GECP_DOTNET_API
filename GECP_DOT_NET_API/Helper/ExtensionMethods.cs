@@ -19,7 +19,7 @@ namespace GECP_DOT_NET_API.Helper
                 DeptId = obj.DeptId,
                 DesignationId = obj.DesignationId,
                 IsDeleted = obj.IsDeleted,
-                CreatedDate = obj.CreatedDate,
+                CreatedDate = (DateTime)obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,
                 UpdatedDate = obj.UpdatedDate,
                 UpdatedDateInt = obj.UpdatedDateInt
@@ -85,6 +85,43 @@ namespace GECP_DOT_NET_API.Helper
         }
         #endregion
 
+
+        #region --> DesignationVM
+
+        public static DesignationVM ToModel(this Designation obj)
+        {
+            return new DesignationVM()
+            {
+                Id = obj.Id,
+                Title = obj.Title,
+                Class = obj.Class,
+                Payband = obj.Payband,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static Designation ToContext(this DesignationVM obj)
+        {
+            return new Designation()
+            {
+                Id=obj.Id,
+                Title = obj.Title,
+                Class = obj.Class,
+                Payband = obj.Payband,
+                IsDeleted=obj.IsDeleted,
+                CreatedDate=DateTime.Now,
+                CreatedDateInt=obj.CreatedDateInt,
+                UpdatedDate= DateTime.Now,    
+                UpdatedDateInt=obj.UpdatedDateInt
+            };
+        }
+        #endregion
+
+              
+              
         #region --> CommitteeMembersVM
         public static CommitteeMembersVM ToModel(this CommitteeMember obj)
         {
@@ -176,7 +213,7 @@ namespace GECP_DOT_NET_API.Helper
                 UpdatedDate = obj.UpdatedDate,
                 UpdatedDateInt = obj.UpdatedDateInt
             };
-        }
+        }                  
 
         public static TenderVM ToModel(this Tender obj)
         {
