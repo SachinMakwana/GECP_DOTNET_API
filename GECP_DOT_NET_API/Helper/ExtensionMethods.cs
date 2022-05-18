@@ -1,9 +1,5 @@
 ﻿using GECP_DOT_NET_API.Database;
 using GECP_DOT_NET_API.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace GECP_DOT_NET_API.Helper
 {
@@ -21,6 +17,7 @@ namespace GECP_DOT_NET_API.Helper
                 DeptId = obj.DeptId,
                 DesignationId = obj.DesignationId,
                 IsDeleted = obj.IsDeleted,
+                CreatedDate = (System.DateTime)obj.CreatedDate,
                 CreatedDate = (DateTime)obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,
                 UpdatedDate = obj.UpdatedDate,
@@ -124,6 +121,7 @@ namespace GECP_DOT_NET_API.Helper
         }
         #endregion
 
+    
         #region --> GalleryTagVM
         public static GalleryTagVM ToModel(this GalleryTag obj)
         {
@@ -605,6 +603,46 @@ namespace GECP_DOT_NET_API.Helper
               };
           }
         #endregion
+        
+        #region --> DepartmentAmentyVM
+        public static DepartmentAmentyVM ToModel(this DepartmentAmenty obj)
+        {
+            return new DepartmentAmentyVM()
+            {
+                Id = obj.Id,
+                DeptId = obj.DeptId,
+                Intake = obj.Intake,
+                Subjects = obj.Subjects,
+                Labs = obj.Labs,
+                Workshop = obj.Workshop,
+                Classroom = obj.Classroom,
+                Seminar = obj.Seminar,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = (System.DateTime)obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+            };
+        }
+        public static DepartmentAmenty ToContext(this DepartmentAmentyVM obj)
+        {
+            return new DepartmentAmenty()
+            {
+                Id = obj.Id,
+                DeptId = obj.DeptId,
+                Intake = obj.Intake,
+                Subjects = obj.Subjects,
+                Labs = obj.Labs,
+                Workshop = obj.Workshop,
+                Classroom = obj.Classroom,
+                Seminar = obj.Seminar,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = System.DateTime.Now,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = System.DateTime.Now,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion 
 
     }
   
