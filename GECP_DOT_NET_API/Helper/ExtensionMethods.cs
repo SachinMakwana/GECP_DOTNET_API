@@ -9,6 +9,40 @@ namespace GECP_DOT_NET_API.Helper
 {
     public static class ExtensionMethods
     {
+        #region --> FacultyDetailsVM
+        public static FacultyDetailsVM ToModel(this FacultyDetail obj)
+        {
+            return new FacultyDetailsVM()
+            {
+                Id = obj.Id,
+                Name = obj.Name,
+                DeptId = obj.DeptId,
+                DesignationId = obj.DesignationId,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+
+        public static FacultyDetail ToContext(this FacultyDetailsVM obj)
+        {
+            return new FacultyDetail()
+            {
+                //Id = obj.Id,
+                Name = obj.Name,
+                DeptId = obj.DeptId,
+                DesignationId = obj.DesignationId,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
+
         #region --> PlacementVM
         public static PlacementVM ToModel(this Placement obj)
         {
@@ -51,20 +85,16 @@ namespace GECP_DOT_NET_API.Helper
         }
         #endregion
 
-        #region --> CollegeVM
-        public static CollegeVM ToModel(this College obj)
+        #region -> TenderVM
+
+        public static Tender ToContext(this TenderVM obj)
         {
-            return new CollegeVM()
+            return new Tender()
             {
                 Id = obj.Id,
-                Name = obj.Name,
-                Principal = obj.Principal,
-                PrincipalMessage = obj.PrincipalMessage,
+                Title = obj.Title,
                 Description = obj.Description,
-                Address = obj.Address,
-                Phone = obj.Phone,
-                Image = obj.Image,
-                Email = obj.Email,
+                Date = obj.Date,
                 IsDeleted = obj.IsDeleted,
                 CreatedDate = obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,
@@ -72,65 +102,60 @@ namespace GECP_DOT_NET_API.Helper
                 UpdatedDateInt = obj.UpdatedDateInt
             };
         }
-        public static College ToContext(this CollegeVM obj)
+
+        public static TenderVM ToModel(this Tender obj)
         {
-            return new College()
+            return new TenderVM()
             {
                 Id = obj.Id,
-                Name = obj.Name,
-                Principal = obj.Principal,
-                PrincipalMessage = obj.PrincipalMessage,
+                Title = obj.Title,
                 Description = obj.Description,
-                Address = obj.Address,
-                Phone = obj.Phone,
-                Image = obj.Image,
-                Email = obj.Email,
+                Date = obj.Date,
                 IsDeleted = obj.IsDeleted,
                 CreatedDate = obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,
                 UpdatedDate = obj.UpdatedDate,
                 UpdatedDateInt = obj.UpdatedDateInt
             };
+
         }
         #endregion
 
-        #region --> AchivementVM
-
-        public static AchievementVM ToModel(this Achievement obj)
+        #region -> GalleryVM
+        public static Gallery ToContext(this GalleryVM obj)
         {
-            return new AchievementVM()
+
+            return new Gallery()
             {
                 Id = obj.Id,
-                Title = obj.Title,
-                Description = obj.Description,
-                Image = obj.Image,
-                Tag = obj.Tag,
-                Date = obj.Date,
-                IsVisible = obj.IsVisible,
-                IsDeleted = obj.IsDeleted,
+                Name = obj.Name,
                 CreatedDate = obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,
+                Extension = obj.Extension,
+                GalleryTagId = obj.GalleryTagId,
+                Image = obj.Image,
+                IsDeleted = obj.IsDeleted,
                 UpdatedDate = obj.UpdatedDate,
                 UpdatedDateInt = obj.UpdatedDateInt
+
             };
         }
 
-        public static Achievement ToContext(this AchievementVM obj)
+        public static GalleryVM ToModel(this Gallery obj)
         {
-            return new Achievement()
+            return new GalleryVM()
             {
-                Id=obj.Id,
-                Title = obj.Title,
-                Description = obj.Description,
+                Id = obj.Id,
+                Name = obj.Name,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                Extension = obj.Extension,
+                GalleryTagId = obj.GalleryTagId,
                 Image = obj.Image,
-                Tag = obj.Tag,
-                Date = obj.Date,
-                IsVisible = obj.IsVisible,
-                IsDeleted=obj.IsDeleted,
-                CreatedDate=obj.CreatedDate,
-                CreatedDateInt=obj.CreatedDateInt,
-                UpdatedDate=obj.UpdatedDate,
-                UpdatedDateInt=obj.UpdatedDateInt
+                IsDeleted = obj.IsDeleted,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+
             };
         }
         #endregion

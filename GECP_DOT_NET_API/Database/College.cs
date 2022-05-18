@@ -9,7 +9,7 @@ namespace GECP_DOT_NET_API.Database
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Principal { get; set; }
+        public int Principal { get; set; }
         public string PrincipalMessage { get; set; }
         public string Description { get; set; }
         public string Address { get; set; }
