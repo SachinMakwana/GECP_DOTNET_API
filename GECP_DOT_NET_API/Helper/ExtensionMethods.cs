@@ -57,7 +57,7 @@ namespace GECP_DOT_NET_API.Helper
                 CompanyId = obj.CompanyId,
                 PlacementDate = obj.PlacementDate,
                 IsDeleted = obj.IsDeleted,
-                CreatedDate = obj.CreatedDate,
+                CreatedDate = (DateTime)obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,
                 UpdatedDate = obj.UpdatedDate,
                 UpdatedDateInt = obj.UpdatedDateInt
@@ -85,8 +85,83 @@ namespace GECP_DOT_NET_API.Helper
         }
         #endregion
 
-        #region -> TenderVM
+        #region --> CommitteeMembersVM
+        public static CommitteeMembersVM ToModel(this CommitteeMember obj)
+        {
+            return new CommitteeMembersVM()
+            {
+                Id = obj.Id,
+                FacultyId = obj.FacultyId,
+                Role = obj.Role,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = (DateTime)obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
 
+        public static CommitteeMember ToContext(this CommitteeMembersVM obj)
+        {
+            return new CommitteeMember()
+            {
+                //Id = obj.Id,
+                FacultyId = obj.FacultyId,
+                Role = obj.Role,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = DateTime.Now,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = DateTime.Now,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+
+        #endregion 
+          
+        #region --> CollegeVM
+        public static CollegeVM ToModel(this College obj)
+        {
+            return new CollegeVM()
+            {
+                Id = obj.Id,
+                Name = obj.Name,
+                Principal = obj.Principal,
+                PrincipalMessage = obj.PrincipalMessage,
+                Description = obj.Description,
+                Address = obj.Address,
+                Phone = obj.Phone,
+                Image = obj.Image,
+                Email = obj.Email,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static College ToContext(this CollegeVM obj)
+        {
+            return new College()
+            {
+                Id = obj.Id,
+                Name = obj.Name,
+                Principal = obj.Principal,
+                PrincipalMessage = obj.PrincipalMessage,
+                Description = obj.Description,
+                Address = obj.Address,
+                Phone = obj.Phone,
+                Image = obj.Image,
+                Email = obj.Email,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
+          
+        #region -> TenderVM
         public static Tender ToContext(this TenderVM obj)
         {
             return new Tender()
