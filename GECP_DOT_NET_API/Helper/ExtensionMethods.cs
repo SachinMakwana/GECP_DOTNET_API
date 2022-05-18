@@ -85,6 +85,37 @@ namespace GECP_DOT_NET_API.Helper
         }
         #endregion
 
+        #region --> VisionVM
+        public static VisionVM ToModel(this Vision obj)
+        {
+            return new VisionVM()
+            {
+                Id = obj.Id,
+                DeptId = obj.DeptId,
+                Description = obj.Description,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = (DateTime)obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static Vision ToContext(this VisionVM obj)
+        {
+            return new Vision()
+            {
+                Id = obj.Id,
+                DeptId = obj.DeptId,
+                Description = obj.Description,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
+
         #region --> NewsVM
 
         public static NewsVM ToModel(this News obj)
@@ -231,7 +262,7 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
         #endregion
-          
+ 
         #region -> TenderVM
         public static Tender ToContext(this TenderVM obj)
         {
