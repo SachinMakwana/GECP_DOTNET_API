@@ -9,6 +9,8 @@ namespace GECP_DOT_NET_API.Helper
 {
     public static class ExtensionMethods
     {
+      
+     
         #region --> FacultyDetailsVM
         public static FacultyDetailsVM ToModel(this FacultyDetail obj)
         {
@@ -39,7 +41,7 @@ namespace GECP_DOT_NET_API.Helper
                 CreatedDateInt = obj.CreatedDateInt,
                 UpdatedDate = obj.UpdatedDate,
                 UpdatedDateInt = obj.UpdatedDateInt
-            };
+             };
         }
         #endregion
 
@@ -100,7 +102,7 @@ namespace GECP_DOT_NET_API.Helper
                 UpdatedDateInt = obj.UpdatedDateInt
             };
         }
-
+        
         public static Placement ToContext(this PlacementVM obj)
         {
             return new Placement()
@@ -121,8 +123,6 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
         #endregion
-
-
 
         #region --> GalleryTagVM
         public static GalleryTagVM ToModel(this GalleryTag obj)
@@ -571,6 +571,41 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
         #endregion
+      
+        #region --> DynamicPageVM
+        public static DynamicPage ToContext(this DynamicPageVM obj)
+        {
+            return new DynamicPage()
+            {
+                Id = obj.Id,
+                Title = obj.Title,
+                Name = obj.Name,
+                Description = obj.Description,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+             };
+        }
+              
+        public static DynamicPageVM ToModel(this DynamicPage obj)
+        {
+            return new DynamicPageVM()
+            {
+                Id = obj.Id,
+                Title = obj.Title,
+                Name = obj.Name,
+                Description = obj.Description,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+              };
+          }
+        #endregion
+
     }
   
 }
