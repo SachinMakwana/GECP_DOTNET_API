@@ -695,6 +695,45 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
         #endregion
-        
+
+        #region --> DepartmentVM
+        public static DepartmentVM ToModel(this Department obj)
+        {
+            return new DepartmentVM()
+            {
+                Id = obj.Id,
+                Name = obj.Name,
+                Description = obj.Description,
+                Head = obj.Head,
+                Message = obj.Message,
+                Image = obj.Image,
+                Slogan = obj.Slogan,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = (DateTime)obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static Department ToContext(this DepartmentVM obj)
+        {
+            return new Department()
+            {
+                //Id = obj.Id,
+                Name = obj.Name,
+                Description = obj.Description,
+                Head = obj.Head,
+                Message = obj.Message,
+                Image = obj.Image,
+                Slogan = obj.Slogan,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
+
     }
 }
