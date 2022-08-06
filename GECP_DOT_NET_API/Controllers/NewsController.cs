@@ -32,17 +32,15 @@ namespace GECP_DOT_NET_API.Controllers
         }
 
         [HttpPost, Route("api/AddNewsDetail")]
-        public IActionResult AddNewsDetail()
+        public IActionResult AddNewsDetail(NewsVM newsVM)
         {
-            var newsVM = new NewsVM();
-            TryUpdateModelAsync<NewsVM>(newsVM);
+            
             return Ok(inewsRepo.AddNewsDetail(newsVM));
         }
         [HttpPut, Route("api/UpdateNewsDetail")]
-        public IActionResult UpdateNewsDetail()
+        public IActionResult UpdateNewsDetail(NewsVM newsVM)
         {
-            var newsVM = new NewsVM();
-            TryUpdateModelAsync<NewsVM>(newsVM);
+            
             return Ok(inewsRepo.UpdateNewsDetail(newsVM));
         }
 

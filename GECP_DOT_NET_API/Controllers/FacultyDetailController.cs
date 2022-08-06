@@ -32,10 +32,9 @@ namespace GECP_DOT_NET_API.Controllers
         }
 
         [HttpPost, Route("api/AddFacultyDetail")]
-        public IActionResult AddFacultyDetail(IFormCollection collection)
+        public IActionResult AddFacultyDetail(FacultyDetailsVM facultyVM)
         {
-            var facultyVM = new FacultyDetailsVM();
-            TryUpdateModelAsync<FacultyDetailsVM>(facultyVM);
+           
             return Ok(ifacultyRepo.AddFacultyDetail(facultyVM));
         }
 
