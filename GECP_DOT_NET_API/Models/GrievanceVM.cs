@@ -56,5 +56,8 @@ namespace GECP_DOT_NET_API.Models
         public string CreatedDateInt { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public string UpdatedDateInt { get; set; }
+        public DateTime? StatusUpdated { get; internal set; }
+        public string StatusUpdatedInt { get; internal set; }
+        public string StatusDescription { get; internal set; }
     }
 }
