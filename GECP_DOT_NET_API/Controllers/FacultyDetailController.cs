@@ -39,10 +39,9 @@ namespace GECP_DOT_NET_API.Controllers
         }
 
         [HttpPut, Route("api/UpdateFacultyDetail")]
-        public IActionResult UpdateFacultyDetail(IFormCollection collection)
+        public IActionResult UpdateFacultyDetail(FacultyDetailsVM facultyVM)
         {
             
-            var facultyVM = new FacultyDetailsVM();
             return Ok(ifacultyRepo.UpdateFacultyDetail(facultyVM));
         }
 
