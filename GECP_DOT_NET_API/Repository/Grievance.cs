@@ -21,13 +21,13 @@ namespace GECP_DOT_NET_API.Repository
                     serviceRseponse.data = (from g in DBEntities.Grievances
                                             join gs in DBEntities.GrievanceStatuses on new { GrievanceId = g.Id } equals new { GrievanceId = gs.GrievanceId }
                                             where
-                                              gs.CreatedDateInt ==
+                                              gs.Id ==
                                                 (from gt in DBEntities.GrievanceStatuses
                                                  where gt.GrievanceId == g.Id
                                                  select new
                                                  {
-                                                     gt.CreatedDateInt
-                                                 }).Max(p => p.CreatedDateInt)
+                                                     gt.Id
+                                                 }).Max(p => p.Id)
                                             select new GrievanceWithStatusVM
                                             {
                                                 Id = g.Id,
