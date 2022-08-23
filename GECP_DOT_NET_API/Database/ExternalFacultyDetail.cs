@@ -12,7 +12,7 @@ namespace GECP_DOT_NET_API.Database
         public string Department { get; set; }
         public string Designation { get; set; }
         public bool? IsDeleted { get; set; }
-        public DateTime? CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
         public string CreatedDateInt { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public string UpdatedDateInt { get; set; }
