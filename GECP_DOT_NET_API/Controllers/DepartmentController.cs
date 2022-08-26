@@ -4,13 +4,10 @@ using GECP_DOT_NET_API.Helper;
 using GECP_DOT_NET_API.Models;
 using GECP_DOT_NET_API.Repository;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 
 namespace GECP_DOT_NET_API.Controllers
 {
@@ -64,11 +61,9 @@ namespace GECP_DOT_NET_API.Controllers
         }
 
         [HttpPut, Route("api/UpdateDepartmentDetail")]
-        public IActionResult UpdateDepartmentDetail(IFormCollection collection)
+        public IActionResult UpdateDepartmentDetail([FromForm]DepartmentVM departmentVM,[Optional]IFormCollection collection)
         {
             var file = collection.Files.FirstOrDefault();
-            var departmentVM = new DepartmentVM();
-            TryUpdateModelAsync<DepartmentVM>(departmentVM);
             string filepath = string.Empty;
             string dir;
             if (_hostingEnvironment.WebRootPath != null)
@@ -95,7 +90,7 @@ namespace GECP_DOT_NET_API.Controllers
             }
             else
             {
-                departmentVM.Image = string.Empty;
+                departmentVM.Image = !string.IsNullOrWhiteSpace(departmentVM.Image)?departmentVM.Image:string.Empty;
                 return Ok(idepartmentRepo.UpdateDepartmentDetail(departmentVM));
             }
             return Ok();
