@@ -119,9 +119,52 @@ namespace GECP_DOT_NET_API.Helper
             };
         }
         #endregion
-     
-        #region --> FacultyDetailsVM
-        public static FacultyDetailsVM ToModel(this FacultyDetail obj)
+
+        #region --> AchivementVM
+
+        public static AchievementVM ToModel(this Achievement obj)
+        {
+            return new AchievementVM()
+            {
+                Id = obj.Id,
+                Title = obj.Title,
+                Description = obj.Description,
+                Image = obj.Image,
+                Tag = obj.Tag,
+                Date = obj.Date,
+                IsVisible = obj.IsVisible,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+
+        public static Achievement ToContext(this AchievementVM obj)
+        {
+            return new Achievement()
+            {
+                Id = obj.Id,
+                Title = obj.Title,
+                Description = obj.Description,
+                Image = obj.Image,
+                Tag = obj.Tag,
+                Date = obj.Date,
+                IsVisible = obj.IsVisible,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
+    
+
+
+#region --> FacultyDetailsVM
+public static FacultyDetailsVM ToModel(this FacultyDetail obj)
         {
             return new FacultyDetailsVM()
             {
