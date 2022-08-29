@@ -61,7 +61,7 @@ namespace GECP_DOT_NET_API.Repository
 
                     serviceReponse.data = true;
                     serviceReponse.status_code = "200";
-                    serviceReponse.message = "Data added successfully";
+                    serviceReponse.message = "Data Deleted successfully";
 
                 }
             }
@@ -85,7 +85,7 @@ namespace GECP_DOT_NET_API.Repository
                     var attachmentList = DBEntities.Attachments.Where(m => m.IsDeleted != true).Select(m => m.ToModel()).ToList();
                     serviceReponse.data = attachmentList;
                     serviceReponse.status_code = "200";
-                    serviceReponse.message = "Data fetched successfully";
+                    serviceReponse.message = "Data Fetched successfully";
                 }
             }
             catch (Exception ex)
@@ -132,7 +132,7 @@ namespace GECP_DOT_NET_API.Repository
 
                     serviceReponse.data = true;
                     serviceReponse.status_code = "200";
-                    serviceReponse.message = "Data added successfully";
+                    serviceReponse.message = "Data Updated successfully";
 
                 }
 
