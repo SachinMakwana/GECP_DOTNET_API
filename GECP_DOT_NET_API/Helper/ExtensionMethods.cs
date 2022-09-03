@@ -54,10 +54,11 @@ namespace GECP_DOT_NET_API.Helper
                 Description = obj.Description,
                 Slogan = obj.Slogan,
                 IsDeleted = obj.IsDeleted,
-                CreatedDate = obj.CreatedDate,
+                CreatedDate = (DateTime)obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,
                 UpdatedDate = obj.UpdatedDate,
-                UpdatedDateInt = obj.UpdatedDateInt
+                UpdatedDateInt = obj.UpdatedDateInt,
+                CommitteeId = obj.CommitteeId
             };
         }
         public static Committee ToContext(this CommitteeVM obj)
@@ -73,7 +74,8 @@ namespace GECP_DOT_NET_API.Helper
                 CreatedDate = obj.CreatedDate,
                 CreatedDateInt = obj.CreatedDateInt,
                 UpdatedDate = obj.UpdatedDate,
-                UpdatedDateInt = obj.UpdatedDateInt
+                UpdatedDateInt = obj.UpdatedDateInt,
+                CommitteeId = obj.CommitteeId
             };
         }
 

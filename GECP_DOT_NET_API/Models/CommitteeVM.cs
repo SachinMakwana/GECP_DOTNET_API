@@ -14,5 +14,6 @@ namespace GECP_DOT_NET_API.Models
         public string CreatedDateInt { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public string UpdatedDateInt { get; set; }
+        public int CommitteeId { get; set; }
     }
 }

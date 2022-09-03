@@ -32,6 +32,29 @@ namespace GECP_DOT_NET_API.Repository
             return serviceReponse;
         }
 
+        public ServiceResponse<List<CommitteeVM>> GetCommitteeDetail(CommitteeVM committeeVM)
+        {
+            ServiceResponse<List<CommitteeVM>> serviceReponse = new ServiceResponse<List<CommitteeVM>>();
+            try
+            {
+                using (DBEntities = new GECP_ADMINContext())
+                {
+                    var committee = DBEntities.Committees.Where(m => m.CommitteeId == committeeVM.CommitteeId).Select(m => m.ToModel()).ToList();
+                    serviceReponse.data = committee;
+                    serviceReponse.status_code = "200";
+                    serviceReponse.message = "Data fatched successfully";
+                }
+            }
+            catch (Exception ex)
+            {
+                serviceReponse.data = null;
+                serviceReponse.status_code = "000";
+                serviceReponse.message = "Exception: " + ex.Message.ToString();
+            }
+            return serviceReponse;
+        }
+
+
         public ServiceResponse<bool> AddCommitteeDetail(CommitteeVM committeeVM)
         {
             ServiceResponse<bool> serviceReponse = new ServiceResponse<bool>();
