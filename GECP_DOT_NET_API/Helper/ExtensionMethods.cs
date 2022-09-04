@@ -8,7 +8,7 @@ namespace GECP_DOT_NET_API.Helper
     public static class ExtensionMethods
     {
 
-#region --> LabWorkshopVM
+        #region --> LabWorkshopVM
         public static LabWorkshopVM ToModel(this LabWorkshopDetail obj)
         {
             return new LabWorkshopVM()
@@ -43,8 +43,7 @@ namespace GECP_DOT_NET_API.Helper
         }
         #endregion
 
-
- #region --> CommitteeVM
+        #region --> CommitteeVM
         public static CommitteeVM ToModel(this Committee obj)
         {
             return new CommitteeVM()
@@ -82,7 +81,45 @@ namespace GECP_DOT_NET_API.Helper
 
         #endregion
 
-       #region --> AttachmentVM
+        #region --> SubjectVM
+        public static SubjectVM ToModel(this Subject obj)
+        {
+            return new SubjectVM()
+            {
+                Id = obj.Id,
+                Code = obj.Code,
+                Acronym = obj.Acronym,
+                Department = obj.Department,
+                Semester = obj.Semester,
+                Subject1 = obj.Subject1,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = (DateTime)obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt,
+            };
+        }
+        public static Subject ToContext(this SubjectVM obj)
+        {
+            return new Subject()
+            {
+                Id = obj.Id,
+                Code = obj.Code,
+                Acronym = obj.Acronym,
+                Department = obj.Department,
+                Semester = obj.Semester,
+                Subject1 = obj.Subject1,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = (DateTime)obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt,
+            };
+        }
+
+        #endregion
+
+        #region --> AttachmentVM
         public static AttachmentVM ToModel(this Attachment obj)
         {
             return new AttachmentVM()
