@@ -997,5 +997,43 @@ namespace GECP_DOT_NET_API.Helper
         }
 
         #endregion
+
+
+        #region --> CompanyVM
+        public static CompanyVM ToModel(this Company obj)
+        {
+            return new CompanyVM()
+            {
+                Id = obj.Id,
+                Title = obj.Title,
+                Description = obj.Description,
+                RelevantDepartments = obj.RelevantDepartments,
+                Image = obj.Image,
+                Logo = obj.Logo,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static Company ToContext(this CompanyVM obj)
+        {
+            return new Company()
+            {
+                Id = obj.Id,
+                Title = obj.Title,
+                Description = obj.Description,
+                RelevantDepartments = obj.RelevantDepartments,
+                Image = obj.Image,
+                Logo = obj.Logo,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
     }
 }
