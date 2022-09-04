@@ -32,8 +32,8 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(response);
         }
 
-        [HttpGet, Route("api/GetCommitteeDetail")]
-        public ActionResult<CommitteeVM> GetCommitteeDetail(IFormCollection collection)
+        [HttpPost, Route("api/GetCommitteeDetail")]
+        public IActionResult GetCommitteeDetail(IFormCollection collection)
         {
             var committee = new CommitteeVM();
             TryUpdateModelAsync<CommitteeVM>(committee);
