@@ -20,8 +20,8 @@ namespace GECP_DOT_NET_API.Database
         public virtual DbSet<Achievement> Achievements { get; set; }
         public virtual DbSet<Affiliation> Affiliations { get; set; }
         public virtual DbSet<Attachment> Attachments { get; set; }
-        public virtual DbSet<Campus> Campus{ get; set; }
         public virtual DbSet<BackendMenu> BackendMenus { get; set; }
+        public virtual DbSet<Campus> Campuses { get; set; }
         public virtual DbSet<Circular> Circulars { get; set; }
         public virtual DbSet<College> Colleges { get; set; }
         public virtual DbSet<Committee> Committees { get; set; }
@@ -160,44 +160,6 @@ namespace GECP_DOT_NET_API.Database
                     .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
             });
 
-            modelBuilder.Entity<Campus>(entity =>
-            {
-               
-
-                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
-
-                entity.Property(e => e.CreatedDateInt)
-                    .HasMaxLength(4000)
-                    .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
-
-                
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(50);
-                
-                entity.Property(e => e.Department)
-                    .IsRequired()
-                    .HasMaxLength(50);
-                
-                entity.Property(e => e.Category)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-
-                entity.Property(e => e.Image)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                
-
-                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdatedDateInt)
-                    .HasMaxLength(4000)
-                    .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
-            });
-
             modelBuilder.Entity<BackendMenu>(entity =>
             {
                 entity.ToTable("BackendMenu");
@@ -225,6 +187,37 @@ namespace GECP_DOT_NET_API.Database
                 entity.Property(e => e.ViewName)
                     .IsRequired()
                     .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<Campus>(entity =>
+            {
+                entity.ToTable("Campus");
+
+                entity.Property(e => e.Category)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedDateInt)
+                    .HasMaxLength(4000)
+                    .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
+
+                entity.Property(e => e.Department)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Image).IsRequired();
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.UpdatedDateInt)
+                    .HasMaxLength(4000)
+                    .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
             });
 
             modelBuilder.Entity<Circular>(entity =>
