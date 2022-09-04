@@ -6,6 +6,7 @@ namespace GECP_DOT_NET_API.Models
     {
         public int Id { get; set; }
         public int FacultyId { get; set; }
+        public int CommitteeId { get; set; }
         public string Role { get; set; }
         public bool? IsDeleted { get; set; }
         public DateTime CreatedDate { get; set; }

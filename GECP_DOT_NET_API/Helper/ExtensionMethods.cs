@@ -451,6 +451,7 @@ public static FacultyDetailsVM ToModel(this FacultyDetail obj)
             {
                 Id = obj.Id,
                 FacultyId = obj.FacultyId,
+                CommitteeId = obj.CommitteeId,
                 Role = obj.Role,
                 IsDeleted = obj.IsDeleted,
                 CreatedDate = (DateTime)obj.CreatedDate,
@@ -466,6 +467,7 @@ public static FacultyDetailsVM ToModel(this FacultyDetail obj)
             {
                 //Id = obj.Id,
                 FacultyId = obj.FacultyId,
+                CommitteeId=obj.CommitteeId,
                 Role = obj.Role,
                 IsDeleted = obj.IsDeleted,
                 CreatedDate = DateTime.Now,
