@@ -78,7 +78,7 @@ namespace GECP_DOT_NET_API.Repository
                     dbObject.Role = committeeMembersVM.Role;
                     dbObject.FacultyId = committeeMembersVM.FacultyId;
                     dbObject.UpdatedDate = committeeMembersVM.UpdatedDate;
-
+                    dbObject.CommitteeId = committeeMembersVM.CommitteeId;
                     DBEntities.SaveChanges();
 
                     serviceReponse.data = true;
