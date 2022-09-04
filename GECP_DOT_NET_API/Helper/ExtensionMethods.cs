@@ -1,6 +1,7 @@
 ﻿using GECP_DOT_NET_API.Database;
 using GECP_DOT_NET_API.Models;
 using System;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace GECP_DOT_NET_API.Helper
 {
@@ -122,6 +123,41 @@ namespace GECP_DOT_NET_API.Helper
         }
         #endregion
 
+        #region --> CampusVM
+        public static CampusVM ToModel(this Campus obj)
+        {
+            return new CampusVM()
+            {
+                Id = obj.Id,
+                Name = obj.Name,
+                Department = obj.Department,
+                Category = obj.Category,
+                Image = obj.Image,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        public static Campus ToContext(this CampusVM obj)
+        {
+            return new Campus()
+            {
+                Id = obj.Id,
+                Name = obj.Name,
+                Department = obj.Department,
+                Category = obj.Category,
+                Image = obj.Image,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
+
         #region --> AchivementVM
 
         public static AchievementVM ToModel(this Achievement obj)
@@ -163,41 +199,39 @@ namespace GECP_DOT_NET_API.Helper
         }
         #endregion
     
+        #region --> FacultyDetailsVM
+        public static FacultyDetailsVM ToModel(this FacultyDetail obj)
+                {
+                    return new FacultyDetailsVM()
+                    {
+                        Id = obj.Id,
+                        Name = obj.Name,
+                        DeptId = obj.DeptId,
+                        DesignationId = obj.DesignationId,
+                        IsDeleted = obj.IsDeleted,
+                        CreatedDate = (DateTime)obj.CreatedDate,
+                        CreatedDateInt = obj.CreatedDateInt,
+                        UpdatedDate = obj.UpdatedDate,
+                        UpdatedDateInt = obj.UpdatedDateInt
+                    };
+                }
 
-
-#region --> FacultyDetailsVM
-public static FacultyDetailsVM ToModel(this FacultyDetail obj)
-        {
-            return new FacultyDetailsVM()
-            {
-                Id = obj.Id,
-                Name = obj.Name,
-                DeptId = obj.DeptId,
-                DesignationId = obj.DesignationId,
-                IsDeleted = obj.IsDeleted,
-                CreatedDate = (DateTime)obj.CreatedDate,
-                CreatedDateInt = obj.CreatedDateInt,
-                UpdatedDate = obj.UpdatedDate,
-                UpdatedDateInt = obj.UpdatedDateInt
-            };
-        }
-
-        public static FacultyDetail ToContext(this FacultyDetailsVM obj)
-        {
-            return new FacultyDetail()
-            {
-                //Id = obj.Id,
-                Name = obj.Name,
-                DeptId = obj.DeptId,
-                DesignationId = obj.DesignationId,
-                IsDeleted = obj.IsDeleted,
-                CreatedDate = (DateTime)obj.CreatedDate,
-                CreatedDateInt = obj.CreatedDateInt,
-                UpdatedDate = obj.UpdatedDate,
-                UpdatedDateInt = obj.UpdatedDateInt
-             };
-        }
-        #endregion
+                public static FacultyDetail ToContext(this FacultyDetailsVM obj)
+                {
+                    return new FacultyDetail()
+                    {
+                        //Id = obj.Id,
+                        Name = obj.Name,
+                        DeptId = obj.DeptId,
+                        DesignationId = obj.DesignationId,
+                        IsDeleted = obj.IsDeleted,
+                        CreatedDate = (DateTime)obj.CreatedDate,
+                        CreatedDateInt = obj.CreatedDateInt,
+                        UpdatedDate = obj.UpdatedDate,
+                        UpdatedDateInt = obj.UpdatedDateInt
+                     };
+                }
+                #endregion
 
         #region --> EducationDetailVM
 
