@@ -32,18 +32,16 @@ namespace GECP_DOT_NET_API.Controllers
         }
 
         [HttpPost, Route("api/AddCommitteeMemberDetail")]
-        public IActionResult AddCommitteeMemberDetail()
+        public IActionResult AddCommitteeMemberDetail(CommitteeMembersVM committeeMemberVM)
         {
-            var committeeMemberVM = new CommitteeMembersVM();
-            TryUpdateModelAsync<CommitteeMembersVM>(committeeMemberVM);
+           
             return Ok(icommitteeMemberRepo.AddCommitteeMemberDetail(committeeMemberVM));
         }
 
         [HttpPut, Route("api/UpdateCommitteeMemberDetail")]
-        public IActionResult UpdateCommitteeMemberDetail()
+        public IActionResult UpdateCommitteeMemberDetail(CommitteeMembersVM committeeMemberVM)
         {
-            var committeeMemberVM = new CommitteeMembersVM();
-            TryUpdateModelAsync<CommitteeMembersVM>(committeeMemberVM);
+           
             return Ok(icommitteeMemberRepo.UpdateCommitteeMemberDetail(committeeMemberVM));
         }
 

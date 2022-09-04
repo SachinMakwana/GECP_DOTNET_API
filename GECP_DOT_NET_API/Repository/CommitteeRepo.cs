@@ -88,7 +88,7 @@ namespace GECP_DOT_NET_API.Repository
             try
             {
 
-                Committee dbObject = DBEntities.Committees.Where(m => m.CommitteeId == committeeVM.CommitteeId).FirstOrDefault();
+                Committee dbObject = DBEntities.Committees.Where(m => m.Id == committeeVM.Id).FirstOrDefault();
                 if (dbObject == null)
                 {
                     serviceReponse.data = false;
