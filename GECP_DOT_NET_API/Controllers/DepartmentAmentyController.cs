@@ -32,18 +32,14 @@ namespace GECP_DOT_NET_API.Controllers
         }
 
         [HttpPost, Route("api/AddDepartmentAmentyDetail")]
-        public IActionResult AddDepartmentAmentyDetail()
+        public IActionResult AddDepartmentAmentyDetail(DepartmentAmentyVM departmentAmentyVM)
         {
-            var departmentAmentyVM = new DepartmentAmentyVM();
-            TryUpdateModelAsync<DepartmentAmentyVM>(departmentAmentyVM);
             return Ok(idepartmentAmentyRepo.AddDepartmentAmentyDetail(departmentAmentyVM));
         }
 
         [HttpPut, Route("api/UpdateDepartmentAmentyDetail")]
-        public IActionResult UpdateDepartmentAmentyDetail()
+        public IActionResult UpdateDepartmentAmentyDetail(DepartmentAmentyVM departmentAmentyVM)
         {
-            var departmentAmentyVM = new DepartmentAmentyVM();
-            TryUpdateModelAsync<DepartmentAmentyVM>(departmentAmentyVM);
             return Ok(idepartmentAmentyRepo.UpdateDepartmentAmentyDetail(departmentAmentyVM));
         }
 

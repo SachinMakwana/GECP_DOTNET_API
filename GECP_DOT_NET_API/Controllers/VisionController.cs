@@ -26,18 +26,14 @@ namespace GECP_DOT_NET_API.Properties
         }
 
         [HttpPost, Route("api/AddVisionDetail")]
-        public IActionResult AddVisionDetail()
+        public IActionResult AddVisionDetail(VisionVM visionVM)
         {
-            var visionVM = new VisionVM();
-            TryUpdateModelAsync<VisionVM>(visionVM);
             return Ok(ivisionRepo.AddVisionDetail(visionVM));
         }
 
         [HttpPut, Route("api/UpdateVisionDetail")]
-        public IActionResult UpdateVisionDetail()
+        public IActionResult UpdateVisionDetail(VisionVM visionVM)
         {
-            var visionVM = new VisionVM();
-            TryUpdateModelAsync<VisionVM>(visionVM);
             return Ok(ivisionRepo.UpdateVisionDetail(visionVM));
         }
 

@@ -25,18 +25,14 @@ namespace GECP_DOT_NET_API.Controllers
         }
 
         [HttpPost, Route("api/AddMissionDetail")]
-        public IActionResult AddMissionDetail()
+        public IActionResult AddMissionDetail(MissionVM missionVM)
         {
-            var missionVM = new MissionVM();
-            TryUpdateModelAsync<MissionVM>(missionVM);
             return Ok(imissionRepo.AddMissionDetail(missionVM));
         }
 
         [HttpPut, Route("api/UpdateMissionDetail")]
-        public IActionResult UpdateMissionDetail()
+        public IActionResult UpdateMissionDetail(MissionVM missionVM)
         {
-            var missionVM = new MissionVM();
-            TryUpdateModelAsync<MissionVM>(missionVM);
             return Ok(imissionRepo.UpdateMissionDetail(missionVM));
         }
 

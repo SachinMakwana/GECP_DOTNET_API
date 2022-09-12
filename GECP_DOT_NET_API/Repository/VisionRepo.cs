@@ -124,7 +124,7 @@ namespace GECP_DOT_NET_API.Repository
 
                     serviceReponse.data = true;
                     serviceReponse.status_code = "200";
-                    serviceReponse.message = "Data added successfully";
+                    serviceReponse.message = "Data Deleted successfully";
 
                 }
             }
