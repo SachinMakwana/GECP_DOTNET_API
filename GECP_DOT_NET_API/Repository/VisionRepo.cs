@@ -35,6 +35,29 @@ namespace GECP_DOT_NET_API.Repository
             return serviceReponse;
         }
 
+        public ServiceResponse<List<VisionVM>> GetVissionDetail(VisionVM visionVM)
+        {
+            ServiceResponse<List<VisionVM>> serviceReponse = new ServiceResponse<List<VisionVM>>();
+            try
+            {
+                using (DBEntities = new GECP_ADMINContext())
+                {
+                    var committee = DBEntities.Visions.Where(m => m.DeptId == visionVM.DeptId).Select(m => m.ToModel()).ToList();
+                    serviceReponse.data = committee;
+                    serviceReponse.status_code = "200";
+                    serviceReponse.message = "Data fatched successfully";
+                }
+            }
+            catch (Exception ex)
+            {
+                serviceReponse.data = null;
+                serviceReponse.status_code = "000";
+                serviceReponse.message = "Exception: " + ex.Message.ToString();
+            }
+            return serviceReponse;
+        }
+
+
         public ServiceResponse<bool> AddVisionDetail(VisionVM visionVM)
         {
             ServiceResponse<bool> serviceReponse = new ServiceResponse<bool>();
