@@ -78,7 +78,7 @@ namespace GECP_DOT_NET_API.Repository
                    
                     dbObject.DeptId = facultyDetailsVM.DeptId;
                     dbObject.Name = facultyDetailsVM.Name;
-                    dbObject.DesignationId = facultyDetailsVM.DesignationId;
+                    dbObject.Designation = facultyDetailsVM.Designation;
                     dbObject.UpdatedDate = facultyDetailsVM.UpdatedDate;
                     
 

@@ -1,4 +1,5 @@
-﻿using GECP_DOT_NET_API.Helper;
+﻿using GECP_DOT_NET_API.Database;
+using GECP_DOT_NET_API.Helper;
 using GECP_DOT_NET_API.Models;
 using GECP_DOT_NET_API.Repository;
 using Microsoft.AspNetCore.Hosting;
@@ -8,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace GECP_DOT_NET_API.Controllers
@@ -32,17 +34,69 @@ namespace GECP_DOT_NET_API.Controllers
         }
 
         [HttpPost, Route("api/AddFacultyDetail")]
-        public IActionResult AddFacultyDetail(FacultyDetailsVM facultyVM)
+        public IActionResult AddFacultyDetail(IFormCollection collection)
         {
-           
-            return Ok(ifacultyRepo.AddFacultyDetail(facultyVM));
+            var file = collection.Files.FirstOrDefault();
+            var facultyVM = new FacultyDetailsVM();
+            TryUpdateModelAsync<FacultyDetailsVM>(facultyVM);
+            string filepath = string.Empty;
+            string fileName = Guid.NewGuid().ToString() + "." + file.FileName.Split('.')[1];
+            string dir;
+            if (_hostingEnvironment.WebRootPath != null)
+            {
+                dir = Path.Combine(_hostingEnvironment.WebRootPath, "uploads/faculty/img");
+            }
+            else
+            {
+                dir = "uploads/faculty/img";
+
+            }
+            filepath = dir + "/" + fileName;
+            var fileUploadTask = FileUpload.SaveFile(file, filepath, dir);
+            fileUploadTask.Wait();
+            bool status = fileUploadTask.Result;
+            if (status)
+            {
+                facultyVM.Image = filepath;
+                return Ok(ifacultyRepo.AddFacultyDetail(facultyVM));
+            }
+            return Ok();
         }
 
         [HttpPut, Route("api/UpdateFacultyDetail")]
-        public IActionResult UpdateFacultyDetail(FacultyDetailsVM facultyVM)
+        public IActionResult UpdateFacultyDetail([FromForm] FacultyDetailsVM facultyVM, [Optional] IFormCollection collection)
         {
-            
-            return Ok(ifacultyRepo.UpdateFacultyDetail(facultyVM));
+            var file = collection.Files.FirstOrDefault();
+            string filepath = string.Empty;
+            string dir;
+            if (_hostingEnvironment.WebRootPath != null)
+            {
+                dir = Path.Combine(_hostingEnvironment.WebRootPath, "uploads/faculty/img");
+            }
+            else
+            {
+                dir = "uploads/faculty/img";
+
+            }
+            if (file != null && file.Length > 0)
+            {
+                string fileName = Guid.NewGuid().ToString() + "." + file.FileName.Split('.')[1];
+                filepath = dir + "/" + fileName;
+                var fileUploadTask = FileUpload.SaveFile(file, filepath, dir);
+                fileUploadTask.Wait();
+                bool status = fileUploadTask.Result;
+                if (status)
+                {
+                    facultyVM.Image = filepath;
+                    return Ok(ifacultyRepo.UpdateFacultyDetail(facultyVM));
+                }
+            }
+            else
+            {
+                facultyVM.Image = !string.IsNullOrWhiteSpace(facultyVM.Image) ? facultyVM.Image : string.Empty;
+                return Ok(ifacultyRepo.UpdateFacultyDetail(facultyVM));
+            }
+            return Ok();
         }
 
         [HttpPut, Route("api/DeleteFacultyDetail")]

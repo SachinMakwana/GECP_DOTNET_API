@@ -81,43 +81,7 @@ namespace GECP_DOT_NET_API.Helper
 
         #endregion
 
-        #region --> SubjectVM
-        public static SubjectVM ToModel(this Subject obj)
-        {
-            return new SubjectVM()
-            {
-                Id = obj.Id,
-                Code = obj.Code,
-                Acronym = obj.Acronym,
-                Department = obj.Department,
-                Semester = obj.Semester,
-                Subject1 = obj.Subject1,
-                IsDeleted = obj.IsDeleted,
-                CreatedDate = (DateTime)obj.CreatedDate,
-                CreatedDateInt = obj.CreatedDateInt,
-                UpdatedDate = obj.UpdatedDate,
-                UpdatedDateInt = obj.UpdatedDateInt,
-            };
-        }
-        public static Subject ToContext(this SubjectVM obj)
-        {
-            return new Subject()
-            {
-                Id = obj.Id,
-                Code = obj.Code,
-                Acronym = obj.Acronym,
-                Department = obj.Department,
-                Semester = obj.Semester,
-                Subject1 = obj.Subject1,
-                IsDeleted = obj.IsDeleted,
-                CreatedDate = (DateTime)obj.CreatedDate,
-                CreatedDateInt = obj.CreatedDateInt,
-                UpdatedDate = obj.UpdatedDate,
-                UpdatedDateInt = obj.UpdatedDateInt,
-            };
-        }
-
-        #endregion
+       
 
         #region --> AttachmentVM
         public static AttachmentVM ToModel(this Attachment obj)
@@ -244,7 +208,8 @@ namespace GECP_DOT_NET_API.Helper
                         Id = obj.Id,
                         Name = obj.Name,
                         DeptId = obj.DeptId,
-                        DesignationId = obj.DesignationId,
+                        Designation = obj.Designation,
+                        Image = obj.Image,
                         IsDeleted = obj.IsDeleted,
                         CreatedDate = (DateTime)obj.CreatedDate,
                         CreatedDateInt = obj.CreatedDateInt,
@@ -260,7 +225,8 @@ namespace GECP_DOT_NET_API.Helper
                         //Id = obj.Id,
                         Name = obj.Name,
                         DeptId = obj.DeptId,
-                        DesignationId = obj.DesignationId,
+                        Designation = obj.Designation,
+                        Image = obj.Image,
                         IsDeleted = obj.IsDeleted,
                         CreatedDate = (DateTime)obj.CreatedDate,
                         CreatedDateInt = obj.CreatedDateInt,
