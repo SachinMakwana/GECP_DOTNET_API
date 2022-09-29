@@ -81,8 +81,46 @@ namespace GECP_DOT_NET_API.Helper
 
         #endregion
 
-       
 
+        #region --> Subject
+        public static SubjectVM ToModel(this Subject obj)
+        {
+            return new SubjectVM()
+            {
+
+                Id = obj.Id,
+                Code = obj.Code,
+                Department = obj.Department,
+                Semester = obj.Semester,
+                Subject1 = obj.Subject1,
+                Acronym = obj.Acronym,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = (DateTime)obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt,
+            };
+        }
+        public static Subject ToContext(this SubjectVM obj)
+        {
+            return new Subject()
+            {
+
+               // Id = obj.Id,
+                Code = obj.Code,
+                Department = obj.Department,
+                Semester = obj.Semester,
+                Subject1 = obj.Subject1,
+                Acronym = obj.Acronym,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = (DateTime)obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt,
+            };
+        }
+
+        #endregion
         #region --> AttachmentVM
         public static AttachmentVM ToModel(this Attachment obj)
         {
