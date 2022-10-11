@@ -53,8 +53,10 @@ namespace GECP_DOT_NET_API.Database
         public virtual DbSet<Publication> Publications { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<SsipProject> SsipProjects { get; set; }
+        public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<Tag> Tags { get; set; }
         public virtual DbSet<Tender> Tenders { get; set; }
+        public virtual DbSet<UsersDetail> UsersDetails { get; set; }
         public virtual DbSet<Vision> Visions { get; set; }
         public virtual DbSet<WorkExperience> WorkExperiences { get; set; }
 
@@ -63,7 +65,7 @@ namespace GECP_DOT_NET_API.Database
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-1O8STO9;Initial Catalog=GECP_ADMIN;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-FRVO2GR\\SQLEXPRESS;Initial Catalog=GECP_ADMIN;Integrated Security=True");
             }
         }
 
@@ -131,6 +133,7 @@ namespace GECP_DOT_NET_API.Database
             {
                 entity.Property(e => e.Attachment1)
                     .IsRequired()
+                    .HasMaxLength(50)
                     .HasColumnName("Attachment");
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
@@ -217,7 +220,7 @@ namespace GECP_DOT_NET_API.Database
 
                 entity.Property(e => e.UpdatedDateInt)
                     .HasMaxLength(4000)
-                    .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
+                    .HasComputedColumnSql("(format([UpdatedDate],'yyyyMMddHHmmssffff'))", false);
             });
 
             modelBuilder.Entity<Circular>(entity =>
@@ -259,17 +262,11 @@ namespace GECP_DOT_NET_API.Database
 
                 entity.Property(e => e.Description).IsRequired();
 
-                entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Email).IsRequired();
 
-                entity.Property(e => e.Image)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Image).IsRequired();
 
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Name).IsRequired();
 
                 entity.Property(e => e.Phone)
                     .IsRequired()
@@ -283,7 +280,7 @@ namespace GECP_DOT_NET_API.Database
 
                 entity.Property(e => e.UpdatedDateInt)
                     .HasMaxLength(4000)
-                    .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
+                    .HasComputedColumnSql("(format([UpdatedDate],'yyyyMMddHHmmssffff'))", false);
             });
 
             modelBuilder.Entity<Committee>(entity =>
@@ -300,23 +297,19 @@ namespace GECP_DOT_NET_API.Database
 
                 entity.Property(e => e.Description).IsRequired();
 
-                entity.Property(e => e.Image)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Image).IsRequired();
 
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.Slogan)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Slogan).IsRequired();
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.UpdatedDateInt)
                     .HasMaxLength(4000)
-                    .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
+                    .HasComputedColumnSql("(format([UpdatedDate],'yyyyMMddHHmmssffff'))", false);
             });
 
             modelBuilder.Entity<CommitteeMember>(entity =>
@@ -352,25 +345,19 @@ namespace GECP_DOT_NET_API.Database
 
                 entity.Property(e => e.Description).IsRequired();
 
-                entity.Property(e => e.Image)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Image).IsRequired();
 
-                entity.Property(e => e.Logo)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Logo).IsRequired();
 
                 entity.Property(e => e.RelevantDepartments).IsRequired();
 
-                entity.Property(e => e.Title)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Title).IsRequired();
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.UpdatedDateInt)
                     .HasMaxLength(4000)
-                    .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
+                    .HasComputedColumnSql("(format([UpdatedDate],'yyyyMMddHHmmssffff'))", false);
             });
 
             modelBuilder.Entity<Department>(entity =>
@@ -535,6 +522,10 @@ namespace GECP_DOT_NET_API.Database
                     .HasMaxLength(4000)
                     .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
 
+                entity.Property(e => e.Designation).IsRequired();
+
+                entity.Property(e => e.Image).IsRequired();
+
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -543,7 +534,7 @@ namespace GECP_DOT_NET_API.Database
 
                 entity.Property(e => e.UpdatedDateInt)
                     .HasMaxLength(4000)
-                    .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
+                    .HasComputedColumnSql("(format([UpdatedDate],'yyyyMMddHHmmssffff'))", false);
             });
 
             modelBuilder.Entity<FrontendMenu>(entity =>
@@ -589,26 +580,20 @@ namespace GECP_DOT_NET_API.Database
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.Image)
-                    .IsRequired()
-                    .IsUnicode(false);
+                entity.Property(e => e.Image).IsRequired();
 
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Name).IsRequired();
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.UpdatedDateInt)
                     .HasMaxLength(4000)
-                    .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
+                    .HasComputedColumnSql("(format([UpdatedDate],'yyyyMMddHHmmssffff'))", false);
             });
 
             modelBuilder.Entity<GalleryTag>(entity =>
             {
                 entity.ToTable("GalleryTag");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
@@ -728,9 +713,7 @@ namespace GECP_DOT_NET_API.Database
 
                 entity.Property(e => e.Description).IsRequired();
 
-                entity.Property(e => e.Image)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Image).IsRequired();
 
                 entity.Property(e => e.Name)
                     .IsRequired()
@@ -740,7 +723,7 @@ namespace GECP_DOT_NET_API.Database
 
                 entity.Property(e => e.UpdatedDateInt)
                     .HasMaxLength(4000)
-                    .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
+                    .HasComputedColumnSql("(format([UpdatedDate],'yyyyMMddHHmmssffff'))", false);
             });
 
             modelBuilder.Entity<MediaLink>(entity =>
@@ -999,6 +982,31 @@ namespace GECP_DOT_NET_API.Database
                     .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
             });
 
+            modelBuilder.Entity<Subject>(entity =>
+            {
+                entity.ToTable("Subject");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Acronym).IsRequired();
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedDateInt)
+                    .HasMaxLength(4000)
+                    .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
+
+                entity.Property(e => e.Department).IsRequired();
+
+                entity.Property(e => e.Subject1).IsRequired();
+
+                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.UpdatedDateInt)
+                    .HasMaxLength(4000)
+                    .HasComputedColumnSql("(format([UpdatedDate],'yyyyMMddHHmmssffff'))", false);
+            });
+
             modelBuilder.Entity<Tag>(entity =>
             {
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
@@ -1039,6 +1047,41 @@ namespace GECP_DOT_NET_API.Database
                 entity.Property(e => e.UpdatedDateInt)
                     .HasMaxLength(4000)
                     .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
+            });
+
+            modelBuilder.Entity<UsersDetail>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("UsersDetail");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedDateInt)
+                    .HasMaxLength(4000)
+                    .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
+
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("password");
+
+                entity.Property(e => e.Role)
+                    .HasMaxLength(50)
+                    .HasColumnName("role");
+
+                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.UpdatedDateInt)
+                    .HasMaxLength(4000)
+                    .HasComputedColumnSql("(format([UpdatedDate],'yyyyMMddHHmmssffff'))", false);
+
+                entity.Property(e => e.Username)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("username");
             });
 
             modelBuilder.Entity<Vision>(entity =>
