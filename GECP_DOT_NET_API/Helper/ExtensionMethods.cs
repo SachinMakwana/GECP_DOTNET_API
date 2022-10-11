@@ -7,6 +7,41 @@ namespace GECP_DOT_NET_API.Helper
 {
     public static class ExtensionMethods
     {
+        
+        #region --> UsersVM
+
+        public static UserDetailVM ToModel(this UsersDetail obj)
+        {
+            return new UserDetailVM()
+            {
+                Id = obj.Id,
+                Username = obj.Username,
+                Password = obj.Password,
+                Role = obj.Role,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+
+        public static UsersDetail ToContext(this UserDetailVM obj)
+        {
+            return new UsersDetail()
+            {
+                Id = obj.Id,
+                Username = obj.Username,
+                Password = obj.Password,
+                Role = obj.Role,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
 
         #region --> LabWorkshopVM
         public static LabWorkshopVM ToModel(this LabWorkshopDetail obj)
