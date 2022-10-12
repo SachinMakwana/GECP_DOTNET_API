@@ -32,7 +32,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(idynamicPageRepo.AddDynamicPageDetail(dynamicPageVM));
         }
 
-        [HttpPut, Route("api/UpdateDynamicPageDetail")]
+        [HttpPost, Route("api/UpdateDynamicPageDetail")]
         public IActionResult UpdateDynamicPageDetail()
         {
             var dynamicPageVM = new DynamicPageVM();
@@ -40,7 +40,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(idynamicPageRepo.UpdateDynamicPageDetail(dynamicPageVM));
         }
 
-        [HttpPut, Route("api/DeleteDynamicPageDetail")]
+        [HttpPost, Route("api/DeleteDynamicPageDetail")]
         public IActionResult DeleteDynamicPageDetail(DynamicPageVM dynamicPageVM)
         {
             return Ok(idynamicPageRepo.DeleteDynamicPageDetail(dynamicPageVM));

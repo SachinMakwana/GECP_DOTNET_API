@@ -39,7 +39,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(itender.AddTenderDetail(tenderVMM));
         }
 
-        [HttpPut, Route("api/UpdateTenderDetail")]
+        [HttpPost, Route("api/UpdateTenderDetail")]
         public IActionResult UpdateTenderDetail(IFormCollection collection)
         {
             var tenderVM = new TenderVM();
@@ -47,7 +47,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(itender.UpdateTenderDetail(tenderVM));
         }
 
-        [HttpPut, Route("api/DeleteTenderDetail")]
+        [HttpPost, Route("api/DeleteTenderDetail")]
         public IActionResult DeleteTenderDetail(TenderVM tenderVM)
         {
             return Ok(itender.DeleteTenderDetail(tenderVM));

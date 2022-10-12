@@ -61,7 +61,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok();
         }
 
-        [HttpPut, Route("api/UpdateLabWorkshopDetail")]
+        [HttpPost, Route("api/UpdateLabWorkshopDetail")]
         public IActionResult UpdateLabWorkshopDetail(IFormCollection collection)
         {
             var file = collection.Files.FirstOrDefault();
@@ -99,7 +99,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok();
         }
 
-        [HttpPut, Route("api/DeletePlacementDetail")]
+        [HttpPost, Route("api/DeletePlacementDetail")]
         public IActionResult DeleteLabWorkshopDetail(LabWorkshopVM labworkshopVM)
         {
             return Ok(ilabworkshopRepo.DeleteLabWorkshopDetail(labworkshopVM));

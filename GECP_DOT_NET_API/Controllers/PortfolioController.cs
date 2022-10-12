@@ -34,7 +34,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(iportfolioRepo.AddPortfolioDetail(portfolioVM));
         }
 
-        [HttpPut, Route("api/UpdatePortfolioDetail")]
+        [HttpPost, Route("api/UpdatePortfolioDetail")]
         public IActionResult UpdatePortfolioDetail()
         {
             var portfolioVM = new PortfolioVM();
@@ -42,7 +42,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(iportfolioRepo.UpdatePortfolioDetail(portfolioVM));
         }
 
-        [HttpPut, Route("api/DeletePortfolioDetail")]
+        [HttpPost, Route("api/DeletePortfolioDetail")]
         public IActionResult DeletePortfolioDetail(PortfolioVM portfolioVM)
         {
             return Ok(iportfolioRepo.DeletePortfolioDetail(portfolioVM));

@@ -38,14 +38,14 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(icommitteeMemberRepo.AddCommitteeMemberDetail(committeeMemberVM));
         }
 
-        [HttpPut, Route("api/UpdateCommitteeMemberDetail")]
+        [HttpPost, Route("api/UpdateCommitteeMemberDetail")]
         public IActionResult UpdateCommitteeMemberDetail(CommitteeMembersVM committeeMemberVM)
         {
            
             return Ok(icommitteeMemberRepo.UpdateCommitteeMemberDetail(committeeMemberVM));
         }
 
-        [HttpPut, Route("api/DeleteCommitteeMemberDetail")]
+        [HttpPost, Route("api/DeleteCommitteeMemberDetail")]
         public IActionResult DeletePlacementDetail(CommitteeMembersVM committeeMemberVM)
         {
             return Ok(icommitteeMemberRepo.DeleteCommitteeMemberDetail(committeeMemberVM));

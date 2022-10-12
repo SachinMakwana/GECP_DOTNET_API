@@ -30,13 +30,13 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(imissionRepo.AddMissionDetail(missionVM));
         }
 
-        [HttpPut, Route("api/UpdateMissionDetail")]
+        [HttpPost, Route("api/UpdateMissionDetail")]
         public IActionResult UpdateMissionDetail(MissionVM missionVM)
         {
             return Ok(imissionRepo.UpdateMissionDetail(missionVM));
         }
 
-        [HttpPut, Route("api/DeleteMissionDetail")]
+        [HttpPost, Route("api/DeleteMissionDetail")]
         public IActionResult DeleteMissionDetail(MissionVM missionVM)
         {
             return Ok(imissionRepo.DeleteMissionDetail(missionVM));

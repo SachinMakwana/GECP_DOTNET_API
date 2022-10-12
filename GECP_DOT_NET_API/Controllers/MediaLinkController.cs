@@ -38,7 +38,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(imediaLinkRepo.AddMediaLinkDetail(medaiLinkVM));
         }
 
-        [HttpPut, Route("api/DeleteMediaLinkDetail")]
+        [HttpPost, Route("api/DeleteMediaLinkDetail")]
         public IActionResult DeleteMediaLinkDetail(MediaLinkVM mediaLinkVM)
         {
             return Ok(imediaLinkRepo.DeleteMediaLinkDetail(mediaLinkVM));

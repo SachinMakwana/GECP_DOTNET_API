@@ -34,7 +34,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(ieducationalDetailRepo.AddEducationDetail(educationDetailVM));
         }
 
-        [HttpPut, Route("api/UpdateEducationDetail")]
+        [HttpPost, Route("api/UpdateEducationDetail")]
         public IActionResult UpdateEducationDetail()
         {
             var educationDetailVM = new EducationalDetailsVM();
@@ -42,7 +42,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(ieducationalDetailRepo.UpdateEducationDetail(educationDetailVM));
         }
 
-        [HttpPut, Route("api/DeleteEducationDetail")]
+        [HttpPost, Route("api/DeleteEducationDetail")]
         public IActionResult DeletePlacementDetail(EducationalDetailsVM educationalDetailsVM)
         {
             return Ok(ieducationalDetailRepo.DeleteEducationDetail(educationalDetailsVM));

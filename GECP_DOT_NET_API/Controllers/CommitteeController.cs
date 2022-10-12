@@ -75,7 +75,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok();
         }
 
-        [HttpPut, Route("api/UpdateCommitteeDetail")]
+        [HttpPost, Route("api/UpdateCommitteeDetail")]
         public IActionResult UpdateCommitteeDetail(IFormCollection collection)
         {
             var file = collection.Files.FirstOrDefault();
@@ -113,7 +113,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok();
         }
 
-        [HttpPut, Route("api/DeleteCommitteeDetail")]
+        [HttpPost, Route("api/DeleteCommitteeDetail")]
         public IActionResult DeleteCommitteeDetail(CommitteeVM committeeVM)
         {
             return Ok(icommitteeRepo.DeleteCommitteeDetail(committeeVM));

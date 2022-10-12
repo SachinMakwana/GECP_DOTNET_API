@@ -44,13 +44,13 @@ namespace GECP_DOT_NET_API.Properties
             return Ok(ivisionRepo.AddVisionDetail(visionVM));
         }
 
-        [HttpPut, Route("api/UpdateVisionDetail")]
+        [HttpPost, Route("api/UpdateVisionDetail")]
         public IActionResult UpdateVisionDetail(VisionVM visionVM)
         {
             return Ok(ivisionRepo.UpdateVisionDetail(visionVM));
         }
 
-        [HttpPut, Route("api/DeleteVisionDetail")]
+        [HttpPost, Route("api/DeleteVisionDetail")]
         public IActionResult DeleteVisionDetail(VisionVM visionVM)
         {
             return Ok(ivisionRepo.DeleteVisionDetail(visionVM));

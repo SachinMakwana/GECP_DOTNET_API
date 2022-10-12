@@ -62,7 +62,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok();
         }
 
-        [HttpPut, Route("api/UpdateCompanyDetail")]
+        [HttpPost, Route("api/UpdateCompanyDetail")]
         public IActionResult UpdateCompanyDetail(IFormCollection collection)
         {
             var file = collection.Files.FirstOrDefault();
@@ -100,7 +100,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok();
         }
 
-        [HttpPut, Route("api/DeleteCompanyDetail")]
+        [HttpPost, Route("api/DeleteCompanyDetail")]
         public IActionResult DeleteCompanyDetail(CompanyVM companyVM)
         {
             return Ok(icompanyRepo.DeleteCompanyDetail(companyVM));

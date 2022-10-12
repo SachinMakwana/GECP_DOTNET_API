@@ -38,7 +38,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(igalleryTagRepo.AddGalleryTagDetail(galleryTagVM));
         }
 
-        [HttpPut, Route("api/UpdateGalleryTagDetail")]
+        [HttpPost, Route("api/UpdateGalleryTagDetail")]
         public IActionResult UpdateGalleryTagDetail()
         {
             var galleryTagVM = new GalleryTagVM();
@@ -46,7 +46,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(igalleryTagRepo.UpdateGalleryTagDetail(galleryTagVM));
         }
 
-        [HttpPut, Route("api/DeleteGalleryTagDetail")]
+        [HttpPost, Route("api/DeleteGalleryTagDetail")]
         public IActionResult DeleteGalleryTagDetail(GalleryTagVM galleryTagVM)
         {
             return Ok(igalleryTagRepo.DeleteGalleryTagDetail(galleryTagVM));

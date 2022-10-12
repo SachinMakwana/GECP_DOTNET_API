@@ -34,7 +34,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(iworkExperienceRepo.AddWorkExperienceDetail(workExperienceVM));
         }
 
-        [HttpPut, Route("api/UpdateWorkExperienceDetail")]
+        [HttpPost, Route("api/UpdateWorkExperienceDetail")]
         public IActionResult UpdateWorkExperienceDetail()
         {
             var workExperienceVM = new WorkExperienceVM();
@@ -42,7 +42,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(iworkExperienceRepo.UpdateWorkExperienceDetail(workExperienceVM));
         }
 
-        [HttpPut, Route("api/DeleteWorkExperienceDetail")]
+        [HttpPost, Route("api/DeleteWorkExperienceDetail")]
         public IActionResult DeleteWorkExperienceDetail(WorkExperienceVM workExperienceVM)
         {
             return Ok(iworkExperienceRepo.DeleteWorkExperienceDetail(workExperienceVM));

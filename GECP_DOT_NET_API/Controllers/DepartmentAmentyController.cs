@@ -37,13 +37,13 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(idepartmentAmentyRepo.AddDepartmentAmentyDetail(departmentAmentyVM));
         }
 
-        [HttpPut, Route("api/UpdateDepartmentAmentyDetail")]
+        [HttpPost, Route("api/UpdateDepartmentAmentyDetail")]
         public IActionResult UpdateDepartmentAmentyDetail(DepartmentAmentyVM departmentAmentyVM)
         {
             return Ok(idepartmentAmentyRepo.UpdateDepartmentAmentyDetail(departmentAmentyVM));
         }
 
-        [HttpPut, Route("api/DeleteDepartmentAmentyDetail")]
+        [HttpPost, Route("api/DeleteDepartmentAmentyDetail")]
         public IActionResult DeletePlacementDetail(DepartmentAmentyVM departmentAmentyVM)
         {
             return Ok(idepartmentAmentyRepo.DeleteDepartmentAmentyDetail(departmentAmentyVM));

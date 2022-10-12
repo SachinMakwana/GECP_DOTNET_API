@@ -38,7 +38,7 @@ namespace GECP_DOT_NET_API.Controllers
             TryUpdateModelAsync<DesignationVM>(designationVM);
             return Ok(idesignationRepo.AddDesignationDetail(designationVM));
         }
-        [HttpPut, Route("api/UpdateDesignationDetail")]     
+        [HttpPost, Route("api/UpdateDesignationDetail")]     
         public IActionResult UpdateDesignationDetail()
         {
             var designationVM = new DesignationVM();
@@ -47,7 +47,7 @@ namespace GECP_DOT_NET_API.Controllers
         }
 
 
-        [HttpPut, Route("api/DeleteDesignationDetail")]
+        [HttpPost, Route("api/DeleteDesignationDetail")]
         public IActionResult DeleteDesignationDetail(DesignationVM designationVM)
         {
             return Ok(idesignationRepo.DeleteDesignationDetail(designationVM));

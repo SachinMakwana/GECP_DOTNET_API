@@ -60,7 +60,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok();
         }
 
-        [HttpPut, Route("api/UpdateAchievementDetail")]
+        [HttpPost, Route("api/UpdateAchievementDetail")]
         public IActionResult UpdateAchievementDetail(IFormCollection collection)
         {
             var file = collection.Files.FirstOrDefault();
@@ -98,7 +98,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok();
         }
 
-        [HttpPut, Route("api/DeleteAchievementDetail")]
+        [HttpPost, Route("api/DeleteAchievementDetail")]
         public IActionResult DeleteAchievementDetail(AchievementVM achievementVM)
         {
             return Ok(iachievementRepo.DeleteAchievementDetail(achievementVM));

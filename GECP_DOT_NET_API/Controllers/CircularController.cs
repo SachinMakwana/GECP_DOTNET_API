@@ -41,7 +41,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(icircular.UpdateCircularDetail(circularVM));
         }
 
-        [HttpPut, Route("api/DeleteCircularDetail")]
+        [HttpPost, Route("api/DeleteCircularDetail")]
         public IActionResult DeleteCircularDetail(CircularVM circularVM)
         {
             return Ok(icircular.DeleteCircularDetail(circularVM));

@@ -32,7 +32,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(ipublicationRepo.AddPublicationDetail(publicationVM));
         }
 
-        [HttpPut, Route("api/UpdatePublicationDetail")]
+        [HttpPost, Route("api/UpdatePublicationDetail")]
         public IActionResult UpdatePublicationDetail()
         {
             var publicationVM = new PublicationVM();
@@ -40,7 +40,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(ipublicationRepo.UpdatePublicationDetail(publicationVM));
         }
 
-        [HttpPut, Route("api/DeletePublicationDetail")]
+        [HttpPost, Route("api/DeletePublicationDetail")]
         public IActionResult DeletePublicationDetail(PublicationVM publicationVM)
         {
             return Ok(ipublicationRepo.DeletePublicationDetail(publicationVM));

@@ -40,7 +40,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(isubjectRepo.AddSubjectDetails(subjectVM));
         }
 
-        [HttpPut, Route("api/UpdateSubjectDetails")]
+        [HttpPost, Route("api/UpdateSubjectDetails")]
         public IActionResult UpdateSubjectDetails(IFormCollection collection)
         {
             var subjectVM = new SubjectVM();
@@ -48,7 +48,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(isubjectRepo.UpdateSubjectDetails(subjectVM));
         }
 
-        [HttpPut, Route("api/DeleteSubjectDetails")]
+        [HttpPost, Route("api/DeleteSubjectDetails")]
         public IActionResult DeleteSubjectDetails(SubjectVM subjectVM)
         {
             return Ok(isubjectRepo.DeleteSubjectDetails(subjectVM));

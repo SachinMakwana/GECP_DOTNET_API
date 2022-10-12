@@ -58,7 +58,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok();
         }
 
-        [HttpPut, Route("api/UpdateCollegeDetail")]
+        [HttpPost, Route("api/UpdateCollegeDetail")]
         public IActionResult UpdateCollegeDetail(IFormCollection collection)
         {
             var file = collection.Files.FirstOrDefault();

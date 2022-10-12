@@ -37,14 +37,14 @@ namespace GECP_DOT_NET_API.Controllers
             
             return Ok(inewsRepo.AddNewsDetail(newsVM));
         }
-        [HttpPut, Route("api/UpdateNewsDetail")]
+        [HttpPost, Route("api/UpdateNewsDetail")]
         public IActionResult UpdateNewsDetail(NewsVM newsVM)
         {
             
             return Ok(inewsRepo.UpdateNewsDetail(newsVM));
         }
 
-        [HttpPut, Route("api/DeleteNewsDetail")]
+        [HttpPost, Route("api/DeleteNewsDetail")]
         public IActionResult DeleteNewsDetail(NewsVM newsVM)
         {
             return Ok(inewsRepo.DeleteNewsDetail(newsVM));

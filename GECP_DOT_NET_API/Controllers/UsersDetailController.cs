@@ -29,14 +29,14 @@ namespace GECP_DOT_NET_API.Controllers
 
             return Ok(iuserdetailRepo.AddUsersDetail(userVM));
         }
-        [HttpPut, Route("api/UpdateUsersDetail")]
+        [HttpPost, Route("api/UpdateUsersDetail")]
         public IActionResult UpdateUsersDetail(UserDetailVM userVM)
         {
 
             return Ok(iuserdetailRepo.UpdateUsersDetail(userVM));
         }
 
-        [HttpPut, Route("api/DeleteUsersDetail")]
+        [HttpPost, Route("api/DeleteUsersDetail")]
         public IActionResult DeleteUsersDetail(UserDetailVM userVM)
         {
             return Ok(iuserdetailRepo.DeleteUsersDetail(userVM));

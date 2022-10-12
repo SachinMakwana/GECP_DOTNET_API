@@ -61,7 +61,7 @@ namespace GECP_DOT_NET_API.Controllers
         }
 
 
-        [HttpPut, Route("api/UpdateGalleryDetail")]
+        [HttpPost, Route("api/UpdateGalleryDetail")]
         public IActionResult UpdateGalleryDetail(IFormCollection collection)
         {
             var file = collection.Files.FirstOrDefault();
@@ -99,7 +99,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok();
         }
 
-        [HttpPut, Route("api/DeleteGalleryDetail")]
+        [HttpPost, Route("api/DeleteGalleryDetail")]
         public IActionResult DeletePlacementDetail(GalleryVM galleryVM)
         {
             return Ok(igalleryRepo.DeleteGalleryDetail(galleryVM));

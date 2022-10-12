@@ -60,7 +60,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok();
         }
 
-        [HttpPut, Route("api/UpdateDepartmentDetail")]
+        [HttpPost, Route("api/UpdateDepartmentDetail")]
         public IActionResult UpdateDepartmentDetail([FromForm]DepartmentVM departmentVM,[Optional]IFormCollection collection)
         {
             var file = collection.Files.FirstOrDefault();
@@ -96,7 +96,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok();
         }
 
-        [HttpPut, Route("api/DeleteDepartmentDetail")]
+        [HttpPost, Route("api/DeleteDepartmentDetail")]
         public IActionResult DeleteDepartmentDetail(DepartmentVM departmentVM)
         {
             return Ok(idepartmentRepo.DeleteDepartmentDetail(departmentVM));

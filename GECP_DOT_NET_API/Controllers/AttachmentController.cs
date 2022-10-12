@@ -60,7 +60,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok();
         }
 
-        [HttpPut, Route("api/UpdateAttachmentDetail")]
+        [HttpPost, Route("api/UpdateAttachmentDetail")]
         public IActionResult UpdateAttachmentDetail(IFormCollection collection)
         {
             var file = collection.Files.FirstOrDefault();
@@ -98,7 +98,7 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok();
         }
 
-        [HttpPut, Route("api/DeleteAttachmentDetail")]
+        [HttpPost, Route("api/DeleteAttachmentDetail")]
         public IActionResult DeleteAttachmentDetail(AttachmentVM attachmentVM)
         {
             return Ok(iattachmentRepo.DeleteAttachmentDetail(attachmentVM));
