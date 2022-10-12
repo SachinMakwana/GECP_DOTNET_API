@@ -38,7 +38,8 @@ namespace GECP_DOT_NET_API.Controllers
             var labworkshopVM = new LabWorkshopVM();
             TryUpdateModelAsync<LabWorkshopVM>(labworkshopVM);
             string filepath = string.Empty;
-            string fileName = Guid.NewGuid().ToString() + "." + file.FileName.Split('.')[1];
+            var split = file.FileName.Split('.');
+            string fileName = Guid.NewGuid().ToString() + "." + split[split.Length-1];
             string dir;
             if (_hostingEnvironment.WebRootPath != null)
             {

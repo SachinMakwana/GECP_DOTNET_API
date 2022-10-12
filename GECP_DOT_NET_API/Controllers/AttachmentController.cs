@@ -37,7 +37,8 @@ namespace GECP_DOT_NET_API.Controllers
             var attachmentVM = new AttachmentVM();
             TryUpdateModelAsync<AttachmentVM>(attachmentVM);
             string filepath = string.Empty;
-            string fileName = Guid.NewGuid().ToString() + "." + file.FileName.Split('.')[1];
+            var split = file.FileName.Split('.');
+            string fileName = Guid.NewGuid().ToString() + "." + split[split.Length - 1];
             string dir;
             if (_hostingEnvironment.WebRootPath != null)
             {
@@ -79,7 +80,8 @@ namespace GECP_DOT_NET_API.Controllers
             }
             if (file != null && file.Length > 0)
             {
-                string fileName = Guid.NewGuid().ToString() + "." + file.FileName.Split('.')[1];
+                var split = file.FileName.Split('.');
+                string fileName = Guid.NewGuid().ToString() + "." + split[split.Length - 1];
                 filepath = dir + "/" + fileName;
                 var fileUploadTask = FileUpload.SaveFile(file, filepath, dir);
                 fileUploadTask.Wait();
