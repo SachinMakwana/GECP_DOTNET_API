@@ -10,6 +10,7 @@ namespace GECP_DOT_NET_API.Repository
 {
     public class SubjectRepo : ISubjectRepo
     {
+        
         GECP_ADMINContext DBEntities = new GECP_ADMINContext();
         public ServiceResponse<List<SubjectVM>> GetSubjectDetails()
         {
