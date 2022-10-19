@@ -32,7 +32,7 @@ namespace GECP_DOT_NET_API.Controllers
         }
 
         [HttpPost, Route("api/AddSubjectDetails")]
-        public IActionResult AddSubjectDetails(IFormCollection collection)
+        public IActionResult AddSubjectDetails()
         {
             var subjectVM = new SubjectVM();
             TryUpdateModelAsync<SubjectVM>(subjectVM);
@@ -41,7 +41,7 @@ namespace GECP_DOT_NET_API.Controllers
         }
 
         [HttpPost, Route("api/UpdateSubjectDetails")]
-        public IActionResult UpdateSubjectDetails(IFormCollection collection)
+        public IActionResult UpdateSubjectDetails()
         {
             var subjectVM = new SubjectVM();
             TryUpdateModelAsync<SubjectVM>(subjectVM);

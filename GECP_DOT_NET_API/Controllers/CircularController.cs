@@ -33,8 +33,8 @@ namespace GECP_DOT_NET_API.Controllers
             return Ok(icircular.AddCircularDetail(circularVMM));
         }
 
-        [HttpPut, Route("api/UpdateCircularDetail")]
-        public IActionResult UpdateCircularDetail(IFormCollection collection)
+        [HttpPut, Route("api/UpdateCircularDetails")]
+        public IActionResult UpdateCircularDetail()
         {
             var circularVM = new CircularVM();
             TryUpdateModelAsync<CircularVM>(circularVM);
