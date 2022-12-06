@@ -7,7 +7,66 @@ namespace GECP_DOT_NET_API.Helper
 {
     public static class ExtensionMethods
     {
-        
+
+        #region --> PersonalDetailVM
+
+        public static PersonalDetailVM ToModel(this PersonalDetail obj)
+        {
+            return new PersonalDetailVM()
+            {
+                Id = obj.Id,
+                FacultyId = obj.FacultyId,
+                FirstName = obj.FirstName,
+                MiddleName = obj.MiddleName,
+                LastName = obj.LastName,
+                Dob = obj.Dob,
+                MaritalStatus = obj.MaritalStatus,
+                CurrentAddress = obj.CurrentAddress,
+                PermanentAddress = obj.PermanentAddress,
+                ContactNumber = obj.ContactNumber,
+                WhatsAppNumber = obj.WhatsAppNumber,
+                EmergencyContactNumber = obj.EmergencyContactNumber,
+                Email = obj.Email,
+                HighestQualification = obj.HighestQualification,
+                AreaOfSpecialization = obj.AreaOfSpecialization,
+                TeachingExperience = obj.TeachingExperience,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+
+        public static PersonalDetail ToContext(this PersonalDetailVM obj)
+        {
+            return new PersonalDetail()
+            {
+                Id = obj.Id,
+                FacultyId=obj.FacultyId,
+                FirstName = obj.FirstName,
+                MiddleName = obj.MiddleName,
+                LastName = obj.LastName,
+                Dob = obj.Dob,
+                MaritalStatus = obj.MaritalStatus,
+                CurrentAddress = obj.CurrentAddress,
+                PermanentAddress = obj.PermanentAddress,
+                ContactNumber = obj.ContactNumber,
+                WhatsAppNumber = obj.WhatsAppNumber,
+                EmergencyContactNumber = obj.EmergencyContactNumber,
+                Email = obj.Email,
+                HighestQualification = obj.HighestQualification,
+                AreaOfSpecialization = obj.AreaOfSpecialization,
+                TeachingExperience = obj.TeachingExperience,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
+
         #region --> UsersVM
 
         public static UserDetailVM ToModel(this UsersDetail obj)
