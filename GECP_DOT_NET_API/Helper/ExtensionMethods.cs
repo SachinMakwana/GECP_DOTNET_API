@@ -77,10 +77,11 @@ namespace GECP_DOT_NET_API.Helper
                 Username = obj.Username,
                 Password = obj.Password,
                 Role = obj.Role,
+                SaltKey = obj.SaltKey,
                 IsDeleted = obj.IsDeleted,
-                CreatedDate = obj.CreatedDate,
+                CreatedDate = DateTime.Now,
                 CreatedDateInt = obj.CreatedDateInt,
-                UpdatedDate = obj.UpdatedDate,
+                UpdatedDate = DateTime.Now,
                 UpdatedDateInt = obj.UpdatedDateInt
             };
         }
@@ -93,10 +94,11 @@ namespace GECP_DOT_NET_API.Helper
                 Username = obj.Username,
                 Password = obj.Password,
                 Role = obj.Role,
+                SaltKey = obj.SaltKey,
                 IsDeleted = obj.IsDeleted,
-                CreatedDate = obj.CreatedDate,
+                CreatedDate = DateTime.Now,
                 CreatedDateInt = obj.CreatedDateInt,
-                UpdatedDate = obj.UpdatedDate,
+                UpdatedDate = DateTime.Now,
                 UpdatedDateInt = obj.UpdatedDateInt
             };
         }

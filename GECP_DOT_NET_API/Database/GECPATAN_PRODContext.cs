@@ -1130,8 +1130,6 @@ namespace GECP_DOT_NET_API.Database
 
             modelBuilder.Entity<UsersDetail>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("UsersDetail", "dbo");
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
@@ -1139,8 +1137,6 @@ namespace GECP_DOT_NET_API.Database
                 entity.Property(e => e.CreatedDateInt)
                     .HasMaxLength(4000)
                     .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
-
-                entity.Property(e => e.Id).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.Password)
                     .IsRequired()
@@ -1150,6 +1146,11 @@ namespace GECP_DOT_NET_API.Database
                 entity.Property(e => e.Role)
                     .HasMaxLength(50)
                     .HasColumnName("role");
+
+                entity.Property(e => e.SaltKey)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("saltKey");
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
 
