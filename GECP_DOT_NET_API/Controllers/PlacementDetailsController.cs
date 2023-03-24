@@ -25,7 +25,7 @@ namespace GECP_DOT_NET_API.Controllers
         }
 
 
-        [HttpGet, Route("api/GetAllPlacementDetails")]
+        [HttpGet, Route("api/GetPlacementDetails")]
         public IActionResult GetPlacementDetails()
         {
             var response = iplacementRepo.GetAllPlacementDetails();

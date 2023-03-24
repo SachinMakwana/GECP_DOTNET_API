@@ -50,6 +50,7 @@ namespace GECP_DOT_NET_API.Database
         public virtual DbSet<ParentItem> ParentItems { get; set; }
         public virtual DbSet<PersonalDetail> PersonalDetails { get; set; }
         public virtual DbSet<Placement> Placements { get; set; }
+        public virtual DbSet<PlacementDetail> PlacementDetails { get; set; }
         public virtual DbSet<Portfolio> Portfolios { get; set; }
         public virtual DbSet<Publication> Publications { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
@@ -963,6 +964,39 @@ namespace GECP_DOT_NET_API.Database
                     .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
             });
 
+            modelBuilder.Entity<PlacementDetail>(entity =>
+            {
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedDateInt)
+                    .HasMaxLength(4000)
+                    .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
+
+                entity.Property(e => e.HigestPackage)
+                    .HasColumnType("decimal(18, 2)")
+                    .HasColumnName("higestPackage");
+
+                entity.Property(e => e.LowestPackage)
+                    .HasColumnType("decimal(18, 2)")
+                    .HasColumnName("lowestPackage");
+
+                entity.Property(e => e.NoOfCompany).HasColumnName("noOfCompany");
+
+                entity.Property(e => e.NumberofRegisterdStudent).HasColumnName("numberofRegisterdStudent");
+
+                entity.Property(e => e.PlacedStudent).HasColumnName("placedStudent");
+
+                entity.Property(e => e.PlacementYear).HasColumnType("date");
+
+                entity.Property(e => e.TotalStudent).HasColumnName("totalStudent");
+
+                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.UpdatedDateInt)
+                    .HasMaxLength(4000)
+                    .HasComputedColumnSql("(format([UpdatedDate],'yyyyMMddHHmmssffff'))", false);
+            });
+
             modelBuilder.Entity<Portfolio>(entity =>
             {
                 entity.ToTable("Portfolios", "dbo");
@@ -1130,6 +1164,8 @@ namespace GECP_DOT_NET_API.Database
 
             modelBuilder.Entity<UsersDetail>(entity =>
             {
+                entity.HasNoKey();
+
                 entity.ToTable("UsersDetail", "dbo");
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
@@ -1138,9 +1174,10 @@ namespace GECP_DOT_NET_API.Database
                     .HasMaxLength(4000)
                     .HasComputedColumnSql("(format([CreatedDate],'yyyyMMddHHmmssffff'))", false);
 
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
+
                 entity.Property(e => e.Password)
                     .IsRequired()
-                    .HasMaxLength(50)
                     .HasColumnName("password");
 
                 entity.Property(e => e.Role)

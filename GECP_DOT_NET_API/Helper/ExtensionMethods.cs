@@ -7,6 +7,50 @@ namespace GECP_DOT_NET_API.Helper
 {
     public static class ExtensionMethods
     {
+        #region -->  PlacementDetails
+
+        public static PlacementDetailsVM ToModel(this PlacementDetail obj)
+        {
+            return new PlacementDetailsVM()
+            {
+                Id = obj.Id,
+                DeptId = obj.DeptId,
+                PlacementYear = obj.PlacementYear,
+                NumberofRegisterdStudent = obj.NumberofRegisterdStudent,
+                PlacedStudent = obj.PlacedStudent,
+                TotalStudent = obj.TotalStudent,
+                NoOfCompany = obj.NoOfCompany,
+                HigestPackage = obj.HigestPackage,
+                LowestPackage = obj.LowestPackage,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate= obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+
+        public static PlacementDetail ToContext(this PlacementDetailsVM obj)
+        {
+            return new PlacementDetail()
+            {
+                Id = obj.Id,
+                DeptId = obj.DeptId,
+                PlacementYear = obj.PlacementYear,
+                NumberofRegisterdStudent = obj.NumberofRegisterdStudent,
+                PlacedStudent = obj.PlacedStudent,
+                TotalStudent = obj.TotalStudent,
+                NoOfCompany = obj.NoOfCompany,
+                HigestPackage = obj.HigestPackage,
+                LowestPackage = obj.LowestPackage,
+                IsDeleted = obj.IsDeleted,
+                CreatedDate = obj.CreatedDate,
+                CreatedDateInt = obj.CreatedDateInt,
+                UpdatedDate = obj.UpdatedDate,
+                UpdatedDateInt = obj.UpdatedDateInt
+            };
+        }
+        #endregion
 
         #region --> PersonalDetailVM
 
