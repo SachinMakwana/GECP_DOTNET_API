@@ -16,15 +16,39 @@ namespace GECP_DOT_NET_API.Controllers
     public class PlacementDetailsController : ControllerBase
     {
         private IPlacementRepo iplacementRepo;
+        private IPlacementDetailRepo iplacementDetailRepo;
         private IWebHostEnvironment _hostingEnvironment;
 
         public PlacementDetailsController(IWebHostEnvironment environment)
         {
             iplacementRepo = new PlacementRepo();
+            iplacementDetailRepo = new PlacementDetailRepo();
             _hostingEnvironment = environment;
         }
 
+        [HttpGet, Route("api/GetPlacementDetailsForGraph")]
+        public IActionResult GetPlacementDetailsGraph()
+        {
+            var response = iplacementDetailRepo.GetPlacementDetailsGraph();
+            return Ok(response);
+        }
+        [HttpPost, Route("api/AddPlacementDetailForGraph")]
+        public IActionResult AddPlacementDetail(PlacementDetailsVM detailsVM)
+        {
+            var response = iplacementDetailRepo.AddPlacementDetail(detailsVM);
+            return Ok(response);
+        }
+        [HttpPost, Route("api/UpdatePlacementDetailForGraph")]
+        public IActionResult UpdatePlacementDetail(PlacementDetailsVM detailsVM)
+        {
 
+            return Ok(iplacementDetailRepo.UpdatePlacementDetail(detailsVM));
+        }
+        [HttpPost, Route("api/DeletePlacementDetailForGraph")]
+        public IActionResult DeletePlacementDetailForGraph(PlacementDetailsVM detailsVM)
+        {
+            return Ok(iplacementDetailRepo.DeletePlacementDetailForGraph(detailsVM));
+        }
         [HttpGet, Route("api/GetPlacementDetails")]
         public IActionResult GetPlacementDetails()
         {

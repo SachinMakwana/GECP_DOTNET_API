@@ -75,7 +75,7 @@ namespace GECP_DOT_NET_API.Repository
             return serviceReponse;
         }
 
-        public ServiceResponse<List<PlacementDetailsVM>> GetPlacementDetails()
+        public ServiceResponse<List<PlacementDetailsVM>> GetPlacementDetailsGraph()
         {
             ServiceResponse<List<PlacementDetailsVM>> serviceReponse = new ServiceResponse<List<PlacementDetailsVM>>();
             try
