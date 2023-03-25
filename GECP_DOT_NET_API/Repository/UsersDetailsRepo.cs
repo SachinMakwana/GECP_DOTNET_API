@@ -60,7 +60,7 @@ namespace GECP_DOT_NET_API.Repository
             }
             return serviceReponse;
         }
-        public ServiceResponse<bool> UpdateUsersDetail(UserDetailVM UserDetailVM)
+        public ServiceResponse<bool> RestPasswordUsersDetail(UserDetailVM UserDetailVM)
         {
             ServiceResponse<bool> serviceReponse = new ServiceResponse<bool>();
             try

@@ -26,14 +26,12 @@ namespace GECP_DOT_NET_API.Controllers
         [HttpPost, Route("api/AddUsersDetail")]
         public IActionResult AddUsersDetail(UserDetailVM userVM)
         {
-
             return Ok(iuserdetailRepo.AddUsersDetail(userVM));
         }
-        [HttpPost, Route("api/UpdateUsersDetail")]
-        public IActionResult UpdateUsersDetail(UserDetailVM userVM)
+        [HttpPost, Route("api/RestPasswordUsersDetail")]
+        public IActionResult RestPasswordUsersDetail(UserDetailVM userVM)
         {
-
-            return Ok(iuserdetailRepo.UpdateUsersDetail(userVM));
+            return Ok(iuserdetailRepo.RestPasswordUsersDetail(userVM));
         }
 
         [HttpPost, Route("api/DeleteUsersDetail")]
