@@ -9,7 +9,7 @@ namespace GECP_DOT_NET_API.Database
     {
         public int Id { get; set; }
         public int DeptId { get; set; }
-        public DateTime PlacementYear { get; set; }
+        public int PlacementYear { get; set; }
         public int NumberofRegisterdStudent { get; set; }
         public int PlacedStudent { get; set; }
         public int TotalStudent { get; set; }

@@ -986,8 +986,6 @@ namespace GECP_DOT_NET_API.Database
 
                 entity.Property(e => e.PlacedStudent).HasColumnName("placedStudent");
 
-                entity.Property(e => e.PlacementYear).HasColumnType("date");
-
                 entity.Property(e => e.TotalStudent).HasColumnName("totalStudent");
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
