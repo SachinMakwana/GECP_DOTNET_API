@@ -1,7 +1,9 @@
+using GECP_DOT_NET_API.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
@@ -28,6 +30,8 @@ namespace GECP_DOT_NET_API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors();
+            services.AddDbContext<GECP_ADMINContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,6 +66,11 @@ namespace GECP_DOT_NET_API
                             Path.Combine(Directory.GetCurrentDirectory(), "uploads")),
                 RequestPath = "/uploads"
             });
+        }
+
+        public class AppIdentitySettings
+        {
+            public string ConnectionString { get; set; }
         }
     }
 }

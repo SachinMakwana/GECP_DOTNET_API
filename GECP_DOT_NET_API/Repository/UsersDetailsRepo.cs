@@ -60,6 +60,15 @@ namespace GECP_DOT_NET_API.Repository
             }
             return serviceReponse;
         }
+
+        public ServiceResponse<bool> UpdateUsersDetail(UserDetailVM userVM)
+        {
+            ServiceResponse<bool> serviceReponse = new ServiceResponse<bool>();
+            serviceReponse.data = true;
+            serviceReponse.status_code = "200";
+            serviceReponse.message = "Data added successfully";
+            return serviceReponse;
+        }
         public ServiceResponse<bool> RestPasswordUsersDetail(UserDetailVM UserDetailVM)
         {
             ServiceResponse<bool> serviceReponse = new ServiceResponse<bool>();
