@@ -62,11 +62,14 @@ namespace GECP_DOT_NET_API.Controllers
         }
 
         [HttpPost, Route("api/UpdateDepartmentDetail")]
-        public IActionResult UpdateDepartmentDetail([FromForm]DepartmentVM departmentVM,[Optional]IFormCollection collection)
+        //public IActionResult UpdateDepartmentDetail([FromForm]DepartmentVM departmentVM,[Optional]IFormCollection collection)
+        public IActionResult UpdateDepartmentDetail(IFormCollection collection)
         {
             var file = collection.Files.FirstOrDefault();
             string filepath = string.Empty;
             string dir;
+            var departmentVM = new DepartmentVM();
+            TryUpdateModelAsync<DepartmentVM>(departmentVM);
             if (_hostingEnvironment.WebRootPath != null)
             {
                 dir = Path.Combine(_hostingEnvironment.WebRootPath, "uploads/department/img");

@@ -9,6 +9,7 @@ namespace GECP_DOT_NET_API.Repository
         public ServiceResponse<List<UserDetailVM>> GetUsersDetails();
         public ServiceResponse<bool> AddUsersDetail(UserDetailVM userVM);
         public ServiceResponse<bool> UpdateUsersDetail(UserDetailVM userVM);
+        public ServiceResponse<bool> RestPasswordUsersDetail(UserDetailVM UserDetailVM);
         public ServiceResponse<bool> DeleteUsersDetail(UserDetailVM userVM);
     }
 }
